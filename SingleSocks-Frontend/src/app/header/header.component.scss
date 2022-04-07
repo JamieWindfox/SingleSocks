@@ -1,0 +1,25 @@
+// Usually CSS looks like this whenever there are nested elements
+/*
+.div-a .p-a {
+
+}
+
+.div-a .p-b {
+
+}
+
+.div-a .p-c {
+
+}
+*/
+
+// With SCSS you can write it in the following way for better visibility
+.div-a {
+  .p-a {
+
+  }
+
+  .p-b {
+
+  }
+}
