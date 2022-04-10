@@ -9,8 +9,8 @@
     <h1>Give Away Single Sock</h1>
     <nav>
       <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <li><a href="app.createSock.html">Find SingleSocks</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#findSocks">Find SingleSocks</a></li>
         <li aria-current="page"><a href="#createSocks"><b>Give Away SingleSock</b></a></li>
         <li><a href="#donateSocks">Donate Socks</a></li>
         <li><a href="#diyCorner">DIY Corner</a></li>
@@ -21,19 +21,19 @@
   </header>
 
   <main>
-    <form>
+    <form action="app.sockProfile.html">
       <section>
         <p>
           <label for="sockTitle">Title: </label>
-          <input type="text" id="sockTitle">
+          <input type="text" id="sockTitle" name="sockTitle">
         </p>
       </section>
 
       <section>
         <p><label for="sockImageFile">Upload a picture of your SingleSock</label></p>
-        <p><input type="file" id="sockImageFile" accept="image/*" style="display: flex"></p>
+        <p><input type="file" id="sockImageFile" accept="image/*" style="display: flex" name="sockImage"></p>
         <p><img id="sockImage" scr="#" alt="Preview of your SingleSock" width="300"/></p>
-        <br></br>
+        <br>
       </section>
 
       <table>
@@ -138,6 +138,10 @@
         </tr>
       </table>
       <br></br>
+
+        <label for="description">Short description: </label><br>
+        <textarea id="description"name="description" cols="50" rows="5"></textarea>
+
 
       <p>
         <input type="submit" value="Create SingleSock">
