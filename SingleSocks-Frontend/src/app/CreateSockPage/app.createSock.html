@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SingleSocks: Create Single Sock</title>
+</head>
+<body>
+  <header>
+    <h1>Give Away Single Sock</h1>
+    <nav>
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="app.createSock.html">Find SingleSocks</a></li>
+        <li aria-current="page"><a href="#createSocks"><b>Give Away SingleSock</b></a></li>
+        <li><a href="#donateSocks">Donate Socks</a></li>
+        <li><a href="#diyCorner">DIY Corner</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#fun">Fun</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form>
+      <section>
+        <p>
+          <label for="sockTitle">Title: </label>
+          <input type="text" id="sockTitle">
+        </p>
+      </section>
+
+      <section>
+        <p><label for="sockImageFile">Upload a picture of your SingleSock</label></p>
+        <p><input type="file" id="sockImageFile" accept="image/*" style="display: flex"></p>
+        <p><img id="sockImage" scr="#" alt="Preview of your SingleSock" width="300"/></p>
+        <br></br>
+      </section>
+
+      <table>
+        <tr>
+          <td>
+            <label for="mainColour">Main colour: </label>
+          </td>
+          <td>
+            <select id="mainColour" name="mainColour">
+              <option value="white">White</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="brown">Brown</option>
+              <option value="grey">Grey</option>
+              <option value="black">Black</option>
+              <option value="other">Other</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="sockSize">Size: </label>
+          </td>
+          <td>
+            <select id="sockSize" name="sockSize">
+              <option value="baby">baby socks</option>
+              <option value="15-16">15-16</option>
+              <option value="17-18">17-18</option>
+              <option value="19-22">19-22</option>
+              <option value="23-26">23-26</option>
+              <option value="27-30">27-30</option>
+              <option value="31-34">31-34</option>
+              <option value="35-38">35-38</option>
+              <option value="39-42">39-42</option>
+              <option value="43-46">43-46</option>
+              <option value="oversize">oversize socks</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="pattern">Pattern: </label>
+          </td>
+          <td>
+            <select id="pattern" name="pattern">
+              <option value="single coloured">single coloured</option>
+              <option value="spotted">spotted</option>
+              <option value="striped">striped</option>
+              <option value="checkered">checkered</option>
+              <option value="dappled">dappled</option>
+              <option value="flecked">flecked</option>
+              <option value="flowered">flowered</option>
+              <option value="circles">circles</option>
+              <option value="custom">custom</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="type">Type: </label>
+          </td>
+          <td>
+            <select id="type" name="type">
+              <option value=tow-cover">toe-cover / mute</option>
+              <option value="invisible">invisible / no-show</option>
+              <option value="liner">liner / extra low cut</option>
+              <option value="ped">ped / low cut</option>
+              <option value="quarter">quarter / anklets</option>
+              <option value="midCalf">mid calf / crew</option>
+              <option value="overCalf">over the calf / executive</option>
+              <option value="kneeHigh">knee high</option>
+              <option value="overKnee">over the knee</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="material">Material: </label>
+          </td>
+          <td>
+            <select id="material" name="material">
+              <option value="cotton">100 % Cotton</option>
+              <option value="polyester">100 % Polyester</option>
+              <option value="cottonPolyester">Cotton-Polyester mix</option>
+              <option value="nylon">Nylon</option>
+              <option value="spandex">Spandex</option>
+              <option value="wool">Sheep wool</option>
+              <option value="bamboo">Bamboo</option>
+              <option value="mix">other mix</option>
+              <option value="unknown">unknown</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <br></br>
+
+      <p>
+        <input type="submit" value="Create SingleSock">
+      </p>
+
+    </form>
+  </main>
+</body>
+</html>
