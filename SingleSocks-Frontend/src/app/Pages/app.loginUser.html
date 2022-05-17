@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SingleSocks: User Profile</title>
+  <title>SingleSocks: Login</title>
 </head>
 <body>
   <header>
-    <h1>User Profile</h1>
+    <h1 id="login-title">Login</h1>
     <nav>
       <ul>
         <li><a href="app.home.html">Home</a></li>
         <li><a href="app.findSocks.html">Find SingleSocks</a></li>
         <li><a href="app.createSock.html">Give Away SingleSock</a></li>
-        <li><a href="app.donateSocks">Donate Socks</a></li>
+        <li><a href="app.donateSocks.html">Donate Socks</a></li>
         <li><a href="app.diyCorner.html">DIY Corner</a></li>
         <li><a href="app.about.html">About</a></li>
         <li><a href="app.oddSocksGame.html">Fun</a></li>
@@ -21,35 +21,35 @@
 
     <ul class="id_register_links">
       <li><a href="app.registerUser.html">Register</a></li>
-      <li><a href="app.loginUser.html">Login</a></li>
+      <li aria-current="page"><a href="app.loginUser.html"><b>Login</b></a></li>
     </ul>
   </header>
 
   <main>
-    <h2>userName</h2>
+    <br>
+    <form action="app.userProfile.html">
+      <section>
+        <p>
+          <label for="userEmailInput"><b>E-Mail address</b>: </label>
+          <input type="text" id="userEmailInput" name="userEmail">
+        </p>
+        <p>
+          <label id="userPassword-lbl" for="userPasswordInput"><b>Password</b>: </label>
+          <input type="password" id="userPasswordInput" name="userPassword">
+        </p>
+      </section>
 
-    <table>
-      <tr>
-      <td><b>Location: </b></td>
-        <td>
-          location
-          <a href="#showLocation"> [show location on map]</a>
-        </td>
-      </tr>
-      <tr><td><br></td><td></td></tr>
-      <tr>
-        <td><b>Socks: </b></td>
-        <td>
-          list of socks
-        </td>
-      </tr>
-    </table>
+      <p>
+        <br>
+        <input type="submit" value="Login">
+      </p>
 
+    </form>
   </main>
 
   <footer>
     <br>
-    <p><a href="app.sockProfile.html">Go to Top</a></p>
+    <p><a href="app.loginUser.html">Go to Top</a></p>
     <p>&copy; FH Campus Wien, Computer Science and Digital Communication - WebTech Group 1, Team W: Watchdoggos
     <address>
       <br>Written by <a href="mailto:miguel.arcilla@stud.fh-campuswien.ac.at,michael.basta@stud.fh-campuswien.ac.at,chiara.fedrizzi@stud.fh-campuswien.ac.at,jamie.fuchs@stud.fh-campuswien.ac.at">Watchdoggos</a>
@@ -58,5 +58,4 @@
     </address>
   </footer>
 </body>
-
 </html>
