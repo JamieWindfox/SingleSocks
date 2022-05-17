@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SingleSocks: Register/Login></title>
+</head>
+<body>
+  <header>
+    <h1 id="register-title">Register</h1>
+    <h1 id="login-title">Login</h1>
+    <nav>
+      <ul>
+        <li><a href="app.home.html">Home</a></li>
+        <li><a href="#findSocks">Find SingleSocks</a></li>
+        <li><a href="app.createSock.html">Give Away SingleSock</a></li>
+        <li><a href="#donateSocks">Donate Socks</a></li>
+        <li><a href="app.diyCorner.html">DIY Corner</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="app.oddSocksGame.html">Fun</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <br>
+    <form action="app.userProfile.html">
+      <section>
+        <p>
+          <label for="userNameInput"><b>User Name</b> (visible to others): </label>
+          <input type="text" id="userNameInput" name="userName">
+        </p>
+        <p>
+          <label for="userEmailInput"><b>E-Mail address</b> (not visible to others): </label>
+          <input type="text" id="userEmailInput" name="userEmail">
+        </p>
+        <p>
+          <label id="userPassword-lbl" for="userPasswordInput"><b>Choose a password</b> (not visible to others): </label>
+          <input type="password" id="userPasswordInput" name="userPassword">
+          <p><label id="passwordSecurityTipp-lbl">Your password should be between 8 and 20 signs long,<br>include capitals and lower letters, numbers and can contain<br>the following special characters: !$%&/()=?*+-_,.:; and no<br>whitespace.</label>
+        </p>
+      </section>
+
+      <section>
+        <p id="chooseLocation"><b>Choose your approximate location on the map</b></p>
+        <p id="showLocation"></p>
+        <p><br><br>placeholder for map - return gps data?<br><br><br></p>
+        <br>
+      </section>
+
+      <p>
+        <button id="modifyUser-btn">Modify Profile</button>
+      </p>
+      <p>
+        <input type="submit" value="Create UserProfile">
+      </p>
+
+    </form>
+  </main>
+
+  <footer>
+    <br>
+    <p><a href="app.createSock.html">Go to Top</a></p>
+    <p>&copy; FH Campus Wien, Computer Science and Digital Communication - WebTech Group 1, Team W: Watchdoggos
+    <address>
+      <br>Written by <a href="mailto:miguel.arcilla@stud.fh-campuswien.ac.at,michael.basta@stud.fh-campuswien.ac.at,chiara.fedrizzi@stud.fh-campuswien.ac.at,jamie.fuchs@stud.fh-campuswien.ac.at">Watchdoggos</a>
+      <br>Visit the University of Applied Science Campus Wien at: <a href="https://www.fh-campuswien.ac.at/" target="_blank">FH Campus Vienna</a>
+      <br>1100 Vienna, Austria
+    </address>
+  </footer>
+</body>
+</html>
