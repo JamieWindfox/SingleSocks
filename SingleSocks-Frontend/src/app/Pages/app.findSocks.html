@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SingleSocks: Find Socks</title>
+</head>
+<body>
+  <header>
+    <h1>Find Single Socks</h1>
+    <nav>
+      <ul>
+        <li aria-current="page"><a href="app.home.html"><b>Home</b></a></li>
+        <li><a href="app.findSocks.html">Find SingleSocks</a></li>
+        <li><a href="app.createSock.html">Give Away SingleSock</a></li>
+        <li><a href="app.donateSocks.html">Donate Socks</a></li>
+        <li><a href="app.diyCorner.html">DIY Corner</a></li>
+        <li><a href="app.about.html">About</a></li>
+        <li><a href="app.oddSocksGame.html">Fun</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="filter_section">
+      <!--Concept of checkboxes in dropdown from https://stackoverflow.com/questions/19206919/how-to-create-checkbox-inside-dropdown 17-05-2022, 10:00 Alex-->
+      <label for="mainColour">Main Colour</label>
+      <section id="mainColour" class="multiselect">
+        <section id="mainColour_section" class="selectBox" onclick="toggleCheckboxArea()">
+          <select class="mainColour_select">
+            <option>every color is shown</option>
+          </select>
+          <div class="overSelect"></div>
+        </section>
+        <section id="mainColour_options">
+          <label for="mainColour_white"> <input type="checkbox" id="mainColour_white"  onchange="onFilterChanged()" value="white"/>  white</label>
+          <label for="mainColour_yellow"><input type="checkbox" id="mainColour_yellow" onchange="onFilterChanged()" value="yellow"/> yellow</label>
+          <label for="mainColour_orange"><input type="checkbox" id="mainColour_orange" onchange="onFilterChanged()" value="orange"/> orange</label>
+          <label for="mainColour_red">   <input type="checkbox" id="mainColour_red"    onchange="onFilterChanged()" value="red"/>    red</label>
+          <label for="mainColour_pink">  <input type="checkbox" id="mainColour_pink"   onchange="onFilterChanged()" value="pink"/>   pink</label>
+          <label for="mainColour_purple"><input type="checkbox" id="mainColour_purple" onchange="onFilterChanged()" value="purple"/> purple</label>
+          <label for="mainColour_blue">  <input type="checkbox" id="mainColour_blue"   onchange="onFilterChanged()" value="blue"/>   blue</label>
+          <label for="mainColour_green"> <input type="checkbox" id="mainColour_green"  onchange="onFilterChanged()" value="green"/>  green</label>
+          <label for="mainColour_brown"> <input type="checkbox" id="mainColour_brown"  onchange="onFilterChanged()" value="brown"/>  brown</label>
+          <label for="mainColour_grey">  <input type="checkbox" id="mainColour_grey"   onchange="onFilterChanged()" value="grey"/>   grey</label>
+          <label for="mainColour_black"> <input type="checkbox" id="mainColour_black"  onchange="onFilterChanged()" value="black"/>  black</label>
+          <label for="mainColour_other"> <input type="checkbox" id="mainColour_other"  onchange="onFilterChanged()" value="other"/>  other</label>
+        </section>
+      </section>
+
+
+      <br>
+      <label for="size">Size</label>
+      <section id="size" class="multiselect">
+        <section id="size_section" class="selectBox" onclick="toggleCheckboxArea()">
+          <select class="size_select">
+            <option>every size is shown</option>
+          </select>
+          <div class="overSelect"></div>
+        </section>
+        <section id="size_options">
+          <label for="size_babySock"><input type="checkbox" id="size_babySock" onchange="onFilterChanged()" value="babySock"/>  Baby sock</label>
+          <label for="size_15-16">   <input type="checkbox" id="size_15-16"    onchange="onFilterChanged()" value="s15-16"/>    15-16</label>
+          <label for="size_17-18">   <input type="checkbox" id="size_17-18"    onchange="onFilterChanged()" value="s17-18"/>    17-18</label>
+          <label for="size_19-22">   <input type="checkbox" id="size_19-22"    onchange="onFilterChanged()" value="s19-22"/>    19-22</label>
+          <label for="size_23-26">   <input type="checkbox" id="size_23-26"    onchange="onFilterChanged()" value="s23-26"/>    23-26</label>
+          <label for="size_27-30">   <input type="checkbox" id="size_27-30"    onchange="onFilterChanged()" value="s27-30"/>    27-30</label>
+          <label for="size_31-34">   <input type="checkbox" id="size_31-34"    onchange="onFilterChanged()" value="s31-34"/>    31-34</label>
+          <label for="size_35-38">   <input type="checkbox" id="size_35-38"    onchange="onFilterChanged()" value="s35-38"/>    35-38</label>
+          <label for="size_39-42">   <input type="checkbox" id="size_39-42"    onchange="onFilterChanged()" value="s39-42"/>    39-42</label>
+          <label for="size_43-46">   <input type="checkbox" id="size_43-46"    onchange="onFilterChanged()" value="s43-46"/>    43-46</label>
+          <label for="size_oversize"><input type="checkbox" id="size_oversize" onchange="onFilterChanged()" value="oversize"/>  Oversize</label>
+        </section>
+      </section>
+
+
+      <br>
+      <label for="pattern">Pattern</label>
+      <section id="pattern" class="multiselect">
+        <section id="pattern_section" class="selectBox" onclick="toggleCheckboxArea()">
+          <select class="pattern_select">
+            <option>every pattern is shown</option>
+          </select>
+          <div class="overSelect"></div>
+        </section>
+        <section id="pattern_options">
+          <label for="pattern_singleColoured"><input type="checkbox" id="pattern_singleColoured" onchange="onFilterChanged()" value="singleColoured"/> Single coloured</label>
+          <label for="pattern_spotted">       <input type="checkbox" id="pattern_spotted"        onchange="onFilterChanged()" value="spotted"/>        spotted</label>
+          <label for="pattern_striped">       <input type="checkbox" id="pattern_striped"        onchange="onFilterChanged()" value="striped"/>        striped</label>
+          <label for="pattern_checkered">     <input type="checkbox" id="pattern_checkered"      onchange="onFilterChanged()" value="checkered"/>      checkered</label>
+          <label for="pattern_dappled">       <input type="checkbox" id="pattern_dappled"        onchange="onFilterChanged()" value="dappled"/>        dappled</label>
+          <label for="pattern_flecked">       <input type="checkbox" id="pattern_flecked"        onchange="onFilterChanged()" value="flecked"/>        flecked</label>
+          <label for="pattern_flowered">      <input type="checkbox" id="pattern_flowered"       onchange="onFilterChanged()" value="flowered"/>       flowered</label>
+          <label for="pattern_circles">       <input type="checkbox" id="pattern_circles"        onchange="onFilterChanged()" value="circles"/>        circles</label>
+          <label for="pattern_custom">        <input type="checkbox" id="pattern_custom"         onchange="onFilterChanged()" value="custom"/>         custom</label>
+        </section>
+      </section>
+
+
+      <br>
+      <label for="type">Type</label>
+      <section id="type" class="multiselect">
+        <section id="type_section" class="selectBox" onclick="toggleCheckboxArea()">
+          <select class="pattern_select">
+            <option>every type is shown</option>
+          </select>
+          <div class="overSelect"></div>
+        </section>
+        <section id="type_options">
+          <label for="type_toeCover"> <input type="checkbox" id="type_toeCover"  onchange="onFilterChanged()" value="toeCover"/>  toe-cover / mute </label>
+          <label for="type_invisible"><input type="checkbox" id="type_invisible" onchange="onFilterChanged()" value="invisible"/> invisible / no-show </label>
+          <label for="type_liner">    <input type="checkbox" id="type_liner"     onchange="onFilterChanged()" value="liner"/>     liner / extra low cut </label>
+          <label for="type_ped">      <input type="checkbox" id="type_ped"       onchange="onFilterChanged()" value="ped"/>       ped / low cut </label>
+          <label for="type_quarter">  <input type="checkbox" id="type_quarter"   onchange="onFilterChanged()" value="quarter"/>   quarter / anklets </label>
+          <label for="type_midCalf">  <input type="checkbox" id="type_midCalf"   onchange="onFilterChanged()" value="midCalf"/>   mid calf / crew </label>
+          <label for="type_overCalf"> <input type="checkbox" id="type_overCalf"  onchange="onFilterChanged()" value="overCalf"/>  over calf / executive </label>
+          <label for="type_knee">     <input type="checkbox" id="type_knee"      onchange="onFilterChanged()" value="knee"/>      knee high</label>
+          <label for="type_overKnee"> <input type="checkbox" id="type_overKnee"  onchange="onFilterChanged()" value="overKnee"/>  over knee </label>
+        </section>
+      </section>
+
+
+      <br>
+      <label for="material">Material</label>
+      <section id="material" class="multiselect">
+        <section id="material_section" class="selectBox" onclick="toggleCheckboxArea()">
+          <select class="material_select">
+            <option>every material is shown</option>
+          </select>
+          <div class="overSelect"></div>
+        </section>
+        <section id="material_options">
+          <label for="material_cotton100">      <input type="checkbox" id="material_cotton100"       onchange="onFilterChanged()" value="cotton100"/>       100% cotton</label>
+          <label for="material_polyester100">   <input type="checkbox" id="material_polyester100"    onchange="onFilterChanged()" value="polyester100"/>    100% polyester</label>
+          <label for="material_cottonPolyester"><input type="checkbox" id="material_cottonPolyester" onchange="onFilterChanged()" value="cottonPolyester"/> cotton-polyester mix</label>
+          <label for="material_nylon">          <input type="checkbox" id="material_nylon"           onchange="onFilterChanged()" value="nylon"/>           nylon</label>
+          <label for="material_spandex">        <input type="checkbox" id="material_spandex"         onchange="onFilterChanged()" value="cotton100"/>       spandex</label>
+          <label for="material_sheepWool">      <input type="checkbox" id="material_sheepWool"       onchange="onFilterChanged()" value="sheepWool"/>       sheep wool</label>
+          <label for="material_bamboo">         <input type="checkbox" id="material_bamboo"          onchange="onFilterChanged()" value="bamboo"/>          bamboo</label>
+          <label for="material_other">          <input type="checkbox" id="material_other"           onchange="onFilterChanged()" value="other"/>           other</label>
+          <label for="material_unknown">        <input type="checkbox" id="material_unknown"         onchange="onFilterChanged()" value="unknown"/>         unknown</label>
+        </section>
+      </section>
+    </section>
+
+    <section id="sort_section">
+      Sort Socks by
+      <button type="button" id="sort_newest_button" onclick="sortByNewest()">Newest</button>
+      <button type="button" id="sort_oldest_button" onclick="sortByOldest()">Oldest</button>
+      <button type="button" id="sort_lonliest_button" onclick="sortByLonliest()">Lonliest</button>
+      <button type="button" id="sort_closest_button" onclick="sortByClosest()">Closest</button>
+    </section>
+
+
+    <section id="sock_showcase_section" name="showcase">
+      <br>
+      Placeholder for Sock Showcase
+      <br>
+    </section>
+  </main>
+
+  <footer>
+    <br>
+    <p><a href="app.home.html">Go to Top</a></p>
+    <p>&copy; 2022 FH Campus Wien, Computer Science and Digital Communication - WebTech Group 1, Team W: Watchdoggos
+    <address>
+      <br>Written by <a href="mailto:miguel.arcilla@stud.fh-campuswien.ac.at,michael.basta@stud.fh-campuswien.ac.at,chiara.fedrizzi@stud.fh-campuswien.ac.at,jamie.fuchs@stud.fh-campuswien.ac.at">Watchdoggos</a>
+      <br>Visit the University of Applied Science Campus Wien at: <a href="https://www.fh-campuswien.ac.at/" target="_blank">FH Campus Vienna</a>
+      <br>1100 Vienna, Austria
+    </address>
+  </footer>
+</body>
+</html>
