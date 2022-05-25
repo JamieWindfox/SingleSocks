@@ -1,0 +1,367 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Arial", serif;
+}
+
+@media screen {
+  .collapsible-menu {
+    visibility: hidden;
+    width: 50%;
+  }
+
+  .nav {
+    z-index: 3;
+  }
+
+  .menuList {
+    display: flex;
+    visibility: visible;
+  }
+  .menuList li {
+    transition-duration: 400ms;
+    padding: 1rem 0 1rem 1rem;
+    margin: 0 0.5rem;
+  }
+  .menuList li:active, .menuList li:hover {
+    padding: 1rem 1.5rem;
+  }
+  .menuList li * {
+    justify-content: right;
+  }
+
+  .firstRow, .secondRow {
+    flex-direction: row;
+    padding-bottom: 25px;
+  }
+
+  .leftContainer, .rightContainer {
+    width: 50%;
+    margin-right: 20px;
+  }
+
+  .rightContainer {
+    margin-right: 0;
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .firstRow, .secondRow {
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  .leftContainer, .rightContainer {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .collapsible-menu {
+    visibility: visible;
+    width: 30%;
+  }
+
+  .nav {
+    z-index: 2;
+  }
+
+  .menuList {
+    visibility: hidden;
+    display: block;
+    text-align: right;
+    padding: 2rem 1rem 1rem 1rem;
+  }
+  .menuList li {
+    transition-duration: 400ms;
+    margin: 0.5rem 0;
+  }
+  .menuList li * {
+    justify-content: right;
+  }
+  .menuList li:first-child {
+    margin-top: 3.5rem;
+  }
+}
+nav {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+nav ul {
+  padding: 0.5rem 1rem;
+  border-radius: 3rem;
+  display: flex;
+  list-style: none;
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(50, 50, 50, 0.3);
+}
+nav ul li {
+  border-radius: 3rem;
+}
+nav ul li a {
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--fc-black);
+  display: flex;
+  gap: 0.5rem;
+}
+nav ul li a svg {
+  width: 1.5rem;
+}
+nav ul li a .beside-icon {
+  font-size: 110%;
+  margin-top: 0.1rem;
+}
+nav ul li:active, nav ul li:hover {
+  background-color: #0a4a65;
+  box-shadow: 0 2px 5px 0 rgba(50, 50, 50, 0.3);
+  padding: 1rem 1.5rem;
+  transition-duration: 400ms;
+}
+nav ul li:active svg, nav ul li:hover svg {
+  fill: #c1e3f3;
+}
+nav ul li:active a, nav ul li:hover a {
+  color: #c1e3f3;
+}
+
+.collapsible-menu {
+  background-color: white;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  min-width: fit-content;
+  padding: 0.4rem 1rem;
+  border-radius: 3rem;
+  top: 1rem;
+  right: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(50, 50, 50, 0.3);
+}
+
+.menu-icons {
+  font-size: 220%;
+  color: #0a4a65;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+#barLabel {
+  font-size: 220%;
+  color: #0a4a65;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+#collapsible {
+  display: none;
+}
+
+.itemContainer {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgba(50, 50, 50, 0.6);
+  display: flex;
+  align-items: stretch;
+  margin: 150px 30px 10px 30px;
+}
+.itemContainer .productImage {
+  text-align: center;
+  width: 35%;
+  margin-top: 30px;
+}
+.itemContainer .productImage img {
+  max-width: 500px;
+  width: 100%;
+}
+.itemContainer .productInfo {
+  width: 35%;
+}
+.itemContainer .productInfo #productName {
+  margin: 30px;
+  font-size: 32px;
+}
+.itemContainer .productInfo #manufacturerName {
+  margin: 10px 30px;
+  font-size: 18px;
+}
+.itemContainer .productInfo .productPrice {
+  margin: 20px 30px;
+  color: #084057;
+  font-size: 190%;
+}
+.itemContainer .productSelection {
+  border-left: 2px solid #084057;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 30%;
+}
+.itemContainer .productSelection .priceInfo {
+  width: 100%;
+}
+.itemContainer .productSelection .priceInfo .productPrice {
+  padding: 20px;
+  color: #084057;
+  font-size: 190%;
+}
+.itemContainer .productSelection .additionalInformation, .itemContainer .productSelection .quantity, .itemContainer .productSelection .buttons {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.itemContainer .productSelection .additionalInformation {
+  flex-direction: column;
+}
+.itemContainer .productSelection .additionalInformation p {
+  font-size: 110%;
+  padding: 20px;
+}
+.itemContainer .productSelection .additionalInformation #available {
+  color: green;
+  font-weight: bold;
+}
+.itemContainer .productSelection .quantity {
+  display: flex;
+  align-items: center;
+}
+.itemContainer .productSelection .quantity .quantityLabel {
+  font-size: 110%;
+  margin-left: 20px;
+}
+.itemContainer .productSelection .quantity .quantitySelector {
+  cursor: pointer;
+  background-image: url("/resources/downArrow.png");
+  background-size: 30%;
+  background-position: right;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-right: none;
+  border-top: none;
+  border-left: 2px solid #084057;
+  border-bottom: 3px solid #084057;
+  border-radius: 8px;
+  padding: 4px 14px 4px 8px;
+  margin-left: 8px;
+  margin-right: 10px;
+  font-size: 120%;
+}
+.itemContainer .productSelection .buttons {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.itemContainer .productSelection .buttons #cartButton, .itemContainer .productSelection .buttons #purchaseButton {
+  cursor: pointer;
+  border: none;
+  background-color: rgb(146, 194, 214);
+  color: #084057;
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 120%;
+  transition: 0.3s;
+}
+.itemContainer .productSelection .buttons #purchaseButton {
+  margin-top: 0;
+}
+.itemContainer .productSelection #returnProduct {
+  font-size: 120%;
+  padding: 20px;
+}
+
+.infoButtons {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.infoButtons ul {
+  display: flex;
+  width: fit-content;
+  margin: 10px 30px;
+  font-size: 22px;
+}
+.infoButtons ul :first-child {
+  margin-right: 5px;
+  margin-left: 0;
+}
+.infoButtons ul li {
+  display: flex;
+  margin-left: 5px;
+}
+.infoButtons ul #technicalInformationLabel, .infoButtons ul #productDescriptionLabel {
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  max-width: 250px;
+  background-color: #084057;
+  color: #c1e3f3;
+  padding: 25px;
+}
+.infoButtons ul #productDescriptionLabel {
+  background-color: rgba(206, 232, 248, 0.8);
+  color: #084057;
+}
+.infoButtons ul input {
+  display: none;
+}
+
+.technicalInfoContainer, .productDescriptionContainer {
+  display: block;
+  border-radius: 12px;
+  border-left: 3px solid #084057;
+  border-bottom: 3px solid #084057;
+  padding: 30px;
+  margin: 0 30px 400px 30px;
+}
+.technicalInfoContainer table, .productDescriptionContainer table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+.technicalInfoContainer table tr th, .productDescriptionContainer table tr th {
+  border-bottom: 3px solid #f2f2f2;
+  padding: 20px;
+  width: 30%;
+}
+.technicalInfoContainer table tr td, .productDescriptionContainer table tr td {
+  border-bottom: 3px solid #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+.productDescriptionContainer {
+  display: none;
+}
+.productDescriptionContainer .firstRow, .productDescriptionContainer .secondRow {
+  display: flex;
+}
+.productDescriptionContainer .leftContainer, .productDescriptionContainer .rightContainer {
+  padding: 20px;
+}
+.productDescriptionContainer .sectionHeading {
+  font-weight: normal;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+.productDescriptionContainer .sectionText {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+/*# sourceMappingURL=product.css.map */

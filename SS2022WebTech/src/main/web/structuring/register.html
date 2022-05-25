@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebProject</title>
+
+    <link rel="stylesheet" href="/styling/register.css">
+
+</head>
+
+<body>
+<main>
+    <div class="styleForm">
+        <form action="index.html" id="loginForm" class="loginForm">
+            <input id="usernameInput" type="text" placeholder="username" required/>
+            <input id="passwordInput" type="password" placeholder="password" required/>
+            <input id="emailInput" type="email" placeholder="max@gmail.com" required/>
+
+            <div class="buttonFlex">
+                <button id="submitButton" class="submitButton" title="create" type="submit" value="send">Create</button>
+                <button id="resetButton" class="resetButton" title="reset" type="reset" >Reset</button>
+            </div>
+
+            <p>Already registered?<a title="Login to Account" href="login.html">Sign In</a></p>
+        </form>
+    </div>
+
+</main>
+</body>
+<script src="/scripting/register.js"></script>
+</html>
