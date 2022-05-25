@@ -1,14 +1,13 @@
 <h1>Home</h1>
 <nav>
   <ul>
-    <li *ngFor="let link of links"><a href="/home"><b>{{link}}</b></a></li>
+    <li *ngFor="let link of linkList.links"><a href="{{link.link}}">{{link.name}}</a></li>
+  </ul>
+
+  <ul class="id_register_links">
+    <li *ngFor="let link of authLinkList.links"><a href="{{link.link}}">{{link.name}}</a></li>
   </ul>
 </nav>
-
-<ul class="id_register_links">
-  <li><a href="app.registerUser.html">Register</a></li>
-  <li><a href="app.loginUser.html">Login</a></li>
-</ul>
 
 <main>
   <section id="motd_section" name="motd">
