@@ -9,6 +9,7 @@ import { GameComponent } from './game/game.component';
 import { AboutComponent } from './about/about.component';
 import { DiyCornerComponent } from './diy-corner/diy-corner.component';
 import { DonateComponent } from './donate/donate.component';
+import { FindSocksComponent } from './find-socks/find-socks.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DonateComponent } from './donate/donate.component';
     GameComponent,
     AboutComponent,
     DiyCornerComponent,
-    DonateComponent
+    DonateComponent,
+    FindSocksComponent
   ],
   imports: [
     BrowserModule
