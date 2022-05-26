@@ -15,7 +15,7 @@ export class SingleSockLinkList {
     this.links = [
       new SingleSockLink("home.component.html", "Home"),
       new SingleSockLink("", "Find Socks"),
-      new SingleSockLink("", "Give Away Socks"),
+      new SingleSockLink("create-socks.component.html", "Give Away Socks"),
       new SingleSockLink("", "Find Donation Boxes"),
       new SingleSockLink("", "DIY Corner"),
       new SingleSockLink("", "About"),
