@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateSocksComponent } from './create-socks/create-socks.component';
 import { GameComponent } from './game/game.component';
 import { AboutComponent } from './about/about.component';
+import { DiyCornerComponent } from './diy-corner/diy-corner.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     CreateSocksComponent,
     GameComponent,
-    AboutComponent
+    AboutComponent,
+    DiyCornerComponent
   ],
   imports: [
     BrowserModule
