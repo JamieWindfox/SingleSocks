@@ -8,6 +8,7 @@ import { CreateSocksComponent } from './create-socks/create-socks.component';
 import { GameComponent } from './game/game.component';
 import { AboutComponent } from './about/about.component';
 import { DiyCornerComponent } from './diy-corner/diy-corner.component';
+import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DiyCornerComponent } from './diy-corner/diy-corner.component';
     CreateSocksComponent,
     GameComponent,
     AboutComponent,
-    DiyCornerComponent
+    DiyCornerComponent,
+    DonateComponent
   ],
   imports: [
     BrowserModule
