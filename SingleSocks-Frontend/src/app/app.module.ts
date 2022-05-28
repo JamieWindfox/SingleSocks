@@ -12,6 +12,8 @@ import { DonateComponent } from './donate/donate.component';
 import { FindSocksComponent } from './find-socks/find-socks.component';
 import { SockProfileComponent } from './sock-profile/sock-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { LoginUserComponent } from './login-user/login-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     DonateComponent,
     FindSocksComponent,
     SockProfileComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    RegisterUserComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule
