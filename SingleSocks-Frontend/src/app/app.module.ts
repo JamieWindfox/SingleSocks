@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { DiyCornerComponent } from './diy-corner/diy-corner.component';
 import { DonateComponent } from './donate/donate.component';
 import { FindSocksComponent } from './find-socks/find-socks.component';
+import { SockProfileComponent } from './sock-profile/sock-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FindSocksComponent } from './find-socks/find-socks.component';
     AboutComponent,
     DiyCornerComponent,
     DonateComponent,
-    FindSocksComponent
+    FindSocksComponent,
+    SockProfileComponent
   ],
   imports: [
     BrowserModule
