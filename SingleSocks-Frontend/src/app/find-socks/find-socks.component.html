@@ -1,0 +1,72 @@
+<h1>Find Sock(s)</h1>
+<nav>
+  <ul>
+    <li *ngFor="let link of linkList.links"><a href="{{link.link}}">{{link.name}}</a></li>
+  </ul>
+
+  <ul class="id_register_links">
+    <li *ngFor="let link of authLinkList.links"><a href="{{link.link}}">{{link.name}}</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="filter_section">
+    <table>
+      <tr>
+        <td><label for="mainColour">Main colour</label></td>
+        <td><label for="sockSize">Size</label></td>
+        <td><label for="pattern">Pattern</label></td>
+        <td><label for="type">Type</label></td>
+        <td><label for="material">Material</label></td>
+      </tr>
+      <tr>
+        <td><select id="mainColour" name="mainColour">
+          <option value = "allColors">All Colors</option>
+          <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
+        </select></td>
+        <td><select id="sockSize" name="sockSize">
+          <option value = "allSizes">All Sizes</option>
+          <option *ngFor="let sockSize of sizes" value={{sockSize}}>{{sockSize}}</option>
+        </select></td>
+        <td><select id="pattern" name="pattern">
+          <option value = "allPatterns">All Patterns</option>
+          <option *ngFor="let pattern of patterns" value={{pattern}}>{{pattern}}</option>
+        </select></td>
+        <td><select id="type" name="type">
+          <option value = "allTypes">All Types</option>
+          <option *ngFor="let type of types" value={{type}}>{{type}}</option>
+        </select></td>
+        <td><select id="material" name="material">
+          <option value = "allMaterials">All Materials</option>
+          <option *ngFor="let material of materials" value={{material}}>{{material}}</option>
+        </select></td>
+      </tr>
+    </table>
+  </section><br>
+
+  <section id="sort_section">
+    Sort Socks by
+    <button type="button" id="sort_newest_button" onclick="sortByNewest()">Newest</button>
+    <button type="button" id="sort_oldest_button" onclick="sortByOldest()">Oldest</button>
+    <button type="button" id="sort_lonliest_button" onclick="sortByLonliest()">Lonliest</button>
+    <button type="button" id="sort_closest_button" onclick="sortByClosest()">Closest</button>
+  </section>
+
+  <section id="sock_showcase_section" name="showcase">
+    <br>
+    Placeholder for Sock Showcase
+    <br>
+  </section>
+</main>
+
+<footer>
+  <br>
+  <p><a href="app.findSocks.html">Go to Top</a></p>
+  <p>&copy; 2022 FH Campus Wien, Computer Science and Digital Communication - WebTech Group 1, Team W: Watchdoggos
+  <address>
+    <br>Written by <a href="mailto:miguel.arcilla@stud.fh-campuswien.ac.at,michael.basta@stud.fh-campuswien.ac.at,chiara.fedrizzi@stud.fh-campuswien.ac.at,jamie.fuchs@stud.fh-campuswien.ac.at">Watchdoggos</a>
+    <br>Visit the University of Applied Science Campus Wien at: <a href="https://www.fh-campuswien.ac.at/" target="_blank">FH Campus Vienna</a>
+    <br>1100 Vienna, Austria
+  </address>
+</footer>

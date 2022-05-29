@@ -1,0 +1,106 @@
+<h1>Give Away Single Sock</h1>
+<nav>
+  <ul>
+    <li *ngFor="let link of linkList.links"><a href="{{link.link}}">{{link.name}}</a></li>
+  </ul>
+
+  <ul class="id_register_links">
+    <li *ngFor="let link of authLinkList.links"><a href="{{link.link}}">{{link.name}}</a></li>
+  </ul>
+</nav>
+
+<main>
+  <br>
+  <form action="app.sockProfile.html">
+    <section>
+      <p>
+        <label for="sockTitle">Title: </label>
+        <input type="text" id="sockTitle" name="sockTitle">
+      </p>
+    </section>
+
+    <section>
+      <p><label for="sockImageFile">Upload a picture of your SingleSock</label></p>
+      <p><input type="file" id="sockImageFile" accept="image/*" style="display: flex" name="sockImage"></p>
+      <p><img id="sockImage" scr="#" alt="Preview of your SingleSock" width="300"/></p>
+      <br>
+    </section>
+
+    <table>
+      <tr>
+        <td>
+          <label for="mainColour">Main colour: </label>
+        </td>
+        <td>
+          <select id="mainColour" name="mainColour">
+            <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="sockSize">Size: </label>
+        </td>
+        <td>
+          <select id="sockSize" name="sockSize">
+            <option *ngFor="let sockSize of sizes" value={{sockSize}}>{{sockSize}}</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="pattern">Pattern: </label>
+        </td>
+        <td>
+          <select id="pattern" name="pattern">
+            <option *ngFor="let pattern of patterns" value={{pattern}}>{{pattern}}</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="type">Type: </label>
+        </td>
+        <td>
+          <select id="type" name="type">
+            <option *ngFor="let type of types" value={{type}}>{{type}}</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="material">Material: </label>
+        </td>
+        <td>
+          <select id="material" name="material">
+            <option *ngFor="let material of materials" value={{material}}>{{material}}</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <br>
+
+    <label for="description">Short description: </label><br>
+    <textarea id="description" name="description" cols="50" rows="5"></textarea>
+
+    <p>
+      <input type="submit" value="Create SingleSock">
+    </p>
+
+  </form>
+</main>
+
+<footer>
+  <br>
+  <p><a href="app.createSock.html">Go to Top</a></p>
+  <p>&copy; FH Campus Wien, Computer Science and Digital Communication - WebTech Group 1, Team W: Watchdoggos
+  <address>
+    <br>Written by <a href="mailto:miguel.arcilla@stud.fh-campuswien.ac.at,michael.basta@stud.fh-campuswien.ac.at,chiara.fedrizzi@stud.fh-campuswien.ac.at,jamie.fuchs@stud.fh-campuswien.ac.at">Watchdoggos</a>
+    <br>Visit the University of Applied Science Campus Wien at: <a href="https://www.fh-campuswien.ac.at/" target="_blank">FH Campus Vienna</a>
+    <br>1100 Vienna, Austria
+  </address>
+</footer>
