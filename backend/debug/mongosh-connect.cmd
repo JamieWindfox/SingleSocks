@@ -1,0 +1,1 @@
+mongosh "mongodb+srv://cluster0.w91hd.mongodb.net/singlesocks?authSource=%24external&authMechanism=MONGODB-X509" --apiVersion 1 --tls --tlsCertificateKeyFile ..\sec\X509-cert-162076558419483000.pem
