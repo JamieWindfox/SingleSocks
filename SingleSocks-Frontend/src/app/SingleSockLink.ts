@@ -8,18 +8,27 @@ export class SingleSockLink {
   }
 }
 
+export enum RoutePath {
+  HOME = "home",
+  FIND = "find",
+  GIVE = "give",
+  DONATE = "donate",
+  DIY = "DIY",
+  REGISTER = "register"
+}
+
 export class SingleSockLinkList {
   links: SingleSockLink[];
 
   constructor() {
     this.links = [
-      new SingleSockLink("home.component.html", "Home"),
-      new SingleSockLink("", "Find Socks"),
-      new SingleSockLink("create-socks.component.html", "Give Away Socks"),
-      new SingleSockLink("", "Find Donation Boxes"),
-      new SingleSockLink("", "DIY Corner"),
-      new SingleSockLink("", "About"),
-      new SingleSockLink("", "Fun")
+      new SingleSockLink(RoutePath.HOME, "Home"),
+      new SingleSockLink(RoutePath.FIND, "Find Socks"),
+      new SingleSockLink(RoutePath.GIVE, "Give Away Socks"), // TODO html
+      new SingleSockLink(RoutePath.DONATE, "Find Donation Boxes"),
+      new SingleSockLink(RoutePath.DIY, "DIY Corner")
+      // new SingleSockLink("", "About"),
+      // new SingleSockLink("", "Fun")
     ];
   }
 }
@@ -30,7 +39,7 @@ export class AuthLinkList {
   constructor() {
     this.links = [
       new SingleSockLink("", "Login"),
-      new SingleSockLink("", "Register"),
+      new SingleSockLink(RoutePath.REGISTER, "Register"),
       new SingleSockLink("", "Profile"),
       new SingleSockLink("", "Logout")
     ]

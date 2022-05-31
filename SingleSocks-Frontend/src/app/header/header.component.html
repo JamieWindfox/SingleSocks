@@ -1,16 +1,9 @@
-<!--Example for CSS vs SCSS in header.component.scss-->
-<div class="div-a">
-  <p class="p-a"></p>
-  <p class="p-b"></p>
-  <p class="p-c"></p>
-</div>
+<nav>
+  <ul>
+    <li *ngFor="let link of linkList.links"><a [routerLink]="'/' + link.link">{{link.name}}</a></li>
+  </ul>
 
-<!--Example for dynamic creation of multiple elements form a list-->
-<p *ngFor="let num of list">{{num}}</p>
-
-<!--Example for dynamic visibility for an element-->
-<p *ngIf="isVisible">Shouldn't be visible</p>
-
-<!--Example for binding a click event to a function in header.component.ts-->
-<button (click)="onClick()">Toggle</button>
-
+  <ul class="id_register_links">
+    <li *ngFor="let link of authLinkList.links"><a [routerLink]="'/' + link.link">{{link.name}}</a></li>
+  </ul>
+</nav>
