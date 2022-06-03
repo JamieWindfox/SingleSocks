@@ -1,18 +1,31 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var LocalStrategy = require('passport-local');
-var auth = require('../helpers/auth');
-var User = require('../models/User');
+const express = require('express');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 
+const router = express.Router();
 
-// TODO: Remove in production
-router.get('/login', async function(req, res, next) {
-    res.render('login');
+router.post('/login', async (req, res, next) => {
+    passport.authenticate('login', async (err, user, info) => {
+        try {
+            if(err || !user) {
+                return res.status(403).send({'error': 'Invalid email or password.'});
+            }
+
+            req.login(user, {session: false}, async (error) => {
+                if(error) return next(error);
+
+                const body = { _id: user._id, email: user.email };
+                const token = jwt.sign({user: body}, process.env.TOKEN_SECRET);
+
+                return res.json({token});
+            })
+        } catch (error) {
+            return res.status(403).send({'error': 'Invalid email or password.'});
+        }
+    })(req, res, next);
 });
-
-router.post('/login/password', (req, res, next) => {}); // TODO: Implement jwt creation
 
 router.post('/register',
     body('email').isEmail().custom(value => {
