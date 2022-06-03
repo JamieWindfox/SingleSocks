@@ -34,25 +34,23 @@ var UserSchema = new Schema({
     timestamps: true
 });
 
-// Heavily inspired by https://coderrocketfuel.com/article/store-passwords-in-mongodb-with-node-js-mongoose-and-bcrypt
+// Heavily inspired by https://www.digitalocean.com/community/tutorials/api-authentication-with-json-web-tokensjwt-and-passport
 
-UserSchema.pre("save", function(next) {
+UserSchema.pre('save', async function(next) {
     const user = this
 
     if (this.isModified("password") || this.isNew) {
-        bcrypt.genSalt(10, (err, salt) => {
-            if (err) return next(err)
-
-            bcrypt.hash(user.password, salt, (err, hash) => {
-                if (err) return next(err)
-
-                user.password = hash
-            })
-        })
+        user.password = await bcrypt.hash(user.password, 12)
     }
 
     next()
 })
+
+UserSchema.methods.isValidPassword = async function(password) {
+    const user = this
+    
+    return bcrypt.compare(password, user.password)
+}
 
 
 module.exports = mongoose.model('User', UserSchema);

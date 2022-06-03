@@ -1,11 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var lessMiddleware = require('less-middleware');
-var logger = require('morgan');
-var mongoose = require('mongoose');
+const createError = require('http-errors');
+const passport = require('passport');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const lessMiddleware = require('less-middleware');
+const logger = require('morgan');
+const mongoose = require('mongoose');
 require('dotenv').config({path: 'sec/secrets.env'}); // Puts variables in process.env
+require('./auth/auth');
 
 var app = express();
 
