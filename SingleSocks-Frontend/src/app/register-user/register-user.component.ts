@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
+import {Component, OnInit} from '@angular/core';
+import * as L from "leaflet";
 
 @Component({
   selector: 'app-register-user',
@@ -8,14 +8,25 @@ import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
 })
 export class RegisterUserComponent implements OnInit {
 
-  linkList: SingleSockLinkList;
-  authLinkList: AuthLinkList;
+  selectedMarker: L.Marker;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.linkList = new SingleSockLinkList();
-    this.authLinkList = new AuthLinkList();
+    let map = L.map('map').setView([48.20, 16.4], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 30,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    map.on("click", (e: any) => {
+      if (this.selectedMarker) {
+        map.removeLayer(this.selectedMarker);
+      }
+      this.selectedMarker = L.marker(e.latlng).addTo(map);
+    });
   }
 
 }
