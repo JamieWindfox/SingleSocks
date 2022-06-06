@@ -28,7 +28,7 @@ export class DonateComponent implements OnInit {
     }).addTo(map);
 
     for (let coords of this.boxes) {
-      L.marker(coords as LatLngExpression).addTo(map)
+      L.marker(coords as LatLngExpression).addTo(map).bindPopup("Teststraße 22, 10XX Vienna <br> 09:00-23:00")
     }
   }
 
