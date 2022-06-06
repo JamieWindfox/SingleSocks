@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   socks: SockProfile[] = [
     {
+      id: 1,
       name: "Grey Pair",
       picture: "greysocks.png",
       searchingFor: "a new home",
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
       deliveryPrime: 2.5
     },
     {
+      id: 2,
       name: "Red Single",
       picture: "redsinglesock.png",
       searchingFor: "a match",
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit {
       deliveryPrime: 2.5
     },
     {
+      id: 3,
       name: "Blue Striped",
       picture: "bluestripesocks.png",
       searchingFor: "a new home",
@@ -47,6 +50,7 @@ export class HomeComponent implements OnInit {
       deliveryPrime: 2.5
     },
     {
+      id: 4,
       name: "White Adidas Stripe",
       picture: "whiteadidasstripe.png",
       searchingFor: "a match",
@@ -58,6 +62,7 @@ export class HomeComponent implements OnInit {
       deliveryPrime: 2.5
     },
     {
+      id: 5,
       name: "Model Red Single",
       picture: "redsinglesock.png",
       searchingFor: "a match",
@@ -69,6 +74,7 @@ export class HomeComponent implements OnInit {
       deliveryPrime: 2.5
     },
     {
+      id: 6,
       name: "Model Red Single",
       picture: "redsinglesock.png",
       searchingFor: "a match",

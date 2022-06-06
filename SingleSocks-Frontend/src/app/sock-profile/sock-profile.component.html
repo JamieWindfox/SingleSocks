@@ -1,76 +1,160 @@
 <h1>Sock Profile</h1>
 
 <main>
-  <h2>color pattern material type Sock(s) (Size: size)</h2>
 
-  <p>
-    <img src="#sockImage" alt="picture of sockTitle">
-  </p>
-  <b></b>
+  <div class="itemContainer">
 
-  <table>
-    <tr>
-      <td><b>Main Colour: </b></td>
-      <td>
-        sockColour
-      </td>
-    </tr>
+    <div class="productImage">
+      <img src="assets/{{sock.picture}}">
+    </div>
 
-    <tr>
-      <td><b>Size: </b></td>
-      <td>
-        sockSize
-      </td>
-    </tr>
 
-    <tr>
-      <td><b>Pattern: </b></td>
-      <td>
-        sockPattern
-      </td>
-    </tr>
+    <div class="productInfo">
+      <h2 id="productName">{{sock.name}}</h2>
+      <p id="manufacturerName">Name of manufacturer: {{sock.manufacturer}}</p>
+      <p class="productPrice">Searches for {{sock.searchingFor}}</p>
+    </div>
 
-    <tr>
-      <td><b>Type: </b></td>
-      <td>
-        sockType
-      </td>
-    </tr>
 
-    <tr>
-      <td><b>Material: </b></td>
-      <td>
-        sockMaterial
-      </td>
-    </tr>
+    <div class="productSelection">
 
-    <tr><td><br></td><td></td></tr>
+      <div class="priceInfo">
+        <p class="productPrice">Willing to pay: {{sock.price}} €</p>
+      </div>
 
-    <tr>
-      <td><b>by: </b></td>
-      <td>
-        <a href="#linkToUserProfile">userName</a>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Location: </b></td>
-      <td>
-        location
-        <a href="#showLocation"> [show location on map]</a>
-      </td>
-    </tr>
+      <div class="additionalInformation">
+        <p id="freeDelivery">Free standard shipping is included.</p>
+        <p id="fastestDelivery">You want the sock faster? Fastest delivery: Wednesday, May 25. Order within 4 hrs. 45
+          Min.</p>
+        <p id="priceDelivery">Price for fastest delivery: {{sock.deliveryPrime}} €</p>
+        <p id="available">Available</p>
+      </div>
+      <div class="quantity">
 
-    <tr><td><br></td><td></td></tr>
+        <label for="amount" class="quantityLabel">Quantity:</label>
+        <select id="amount" class="quantitySelector">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
 
-    <tr>
-      <td><b>Description: </b></td>
-      <td>
-        sockDescription - this could be a longer text with quite some rows and columns. It should break the line on its own when the end of the screen is reached. To test this I wrote this text.<br>
-        Is there a linebreak? - if yes: good!<br>
-        And now I try it with some longer text passage:
-        Once upon a time, there was a sock. You think a pair of socks? No! A single sock! It was all alone in the world of sock pairs. All the pairs made fun of the single sock because it had no partner. But one day the single sock saw another single sock lying around. It's partner have had a hole and was thrown away. It's owner didn't know what to do with the remaining sock. But now there where two single socks that could form a pair! And they lived happily ever after as a pair of odd socks.
-      </td>
-    </tr>
-  </table>
+      <img style="display: none" src="assets/downArrow.png">
+      <!-- just there so that the arrow will be displayed-->
+
+      <div class="buttons">
+        <button id="cartButton">Add to cart</button>
+        <button id="purchaseButton">Buy now</button>
+      </div>
+
+      <div class="returnInfo">
+        <p id="returnProduct">Returns are excluded for private sales. If you find any defects in the product, please
+          contact SingleSocks Headquarters directly at +436501234567. </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="infoButtons">
+    <ul>
+      <li>
+        <input type="radio" id="techInf" name="infoButtons" value="true" checked="checked" autocomplete="off">
+        <label for="techInf" id="technicalInformationLabel">Socks Information</label>
+
+      </li>
+      <li>
+        <input type="radio" id="prodDesc" name="infoButtons" value="false" autocomplete="off">
+        <label for="prodDesc" id="productDescriptionLabel">Product description</label>
+      </li>
+    </ul>
+  </div>
+
+  <div class="technicalInfoContainer">
+
+    <table>
+      <tr>
+        <th>Manufacturer:</th>
+        <td>{{sock.manufacturer}}</td>
+      </tr>
+      <tr>
+        <th>Size:</th>
+        <td>{{sock.size}}</td>
+      </tr>
+      <tr>
+        <th>Condition:</th>
+        <td>{{sock.condition}}</td>
+      </tr>
+      <tr>
+        <th>Another value:</th>
+        <td>some value</td>
+      </tr>
+      <tr>
+        <th>Another value:</th>
+        <td>some value</td>
+      </tr>
+      <tr>
+        <th>Another value:</th>
+        <td>some value</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div class="productDescriptionContainer">
+
+    <div class="firstRow">
+      <div class="leftContainer">
+        <h1 id="section1Heading" class="sectionHeading">Random Sock Facts</h1>
+        <p id="section1Text" class="sectionText">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+          Ut enim ad minim veniam, quis nostrud exercitation<br>
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+          Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+      <div class="rightContainer">
+        <h1 id="section2Heading" class="sectionHeading">Another Random Sock Facts</h1>
+        <p id="section2Text" class="sectionText">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+          Ut enim ad minim veniam, quis nostrud exercitation<br>
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+          Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+    </div>
+
+    <div class="secondRow">
+      <div class="leftContainer">
+        <h1 id="section3Heading" class="sectionHeading">Not-so-random Sock Facts</h1>
+        <p id="section3Text" class="sectionText">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+          Ut enim ad minim veniam, quis nostrud exercitation<br>
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+          Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+
+      <div class="rightContainer">
+        <h1 id="section4Heading" class="sectionHeading">Optional Sock Fact</h1>
+        <p id="section4Text" class="sectionText">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+          Ut enim ad minim veniam, quis nostrud exercitation<br>
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+          Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+    </div>
+
+  </div>
 
 </main>

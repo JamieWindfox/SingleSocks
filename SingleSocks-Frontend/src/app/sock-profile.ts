@@ -1,4 +1,5 @@
 export interface SockProfile {
+  id: number;
   name: string;
   searchingFor: string;
   size: number;

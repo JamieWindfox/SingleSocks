@@ -75,6 +75,9 @@ main {
             border-radius: 1.75rem;
             transition-duration: 500ms;
 
+            a {
+              text-decoration: none;
+            }
 
             &:active, &:hover {
               background-color: $secondaryColor;

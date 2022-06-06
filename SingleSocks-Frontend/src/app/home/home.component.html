@@ -11,8 +11,10 @@
         <li><p>Size: {{sock.size}}</p></li>
         <li><p>Condition: {{sock.condition}}</p></li>
         <li>
-          <button title="go to shop" *ngIf="!sock.searchingFor.includes('match')">&#9989; I want them!</button>
-          <button title="go to shop" *ngIf="sock.searchingFor.includes('match')">&#10024; Thats my match!</button>
+          <button title="go to shop" *ngIf="!sock.searchingFor.includes('match')"><a [routerLink]="['/sock', sock.id]">&#9989;
+            I want them!</a></button>
+          <button title="go to shop" *ngIf="sock.searchingFor.includes('match')"><a [routerLink]="['/sock', sock.id]">&#10024;Thats
+            my match!</a></button>
         </li>
       </ul>
     </article>
