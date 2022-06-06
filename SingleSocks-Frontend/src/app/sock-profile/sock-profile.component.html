@@ -59,19 +59,19 @@
 
   <div class="infoButtons">
     <ul>
-      <li>
-        <input type="radio" id="techInf" name="infoButtons" value="true" checked="checked" autocomplete="off">
+      <li [ngClass]="{'descriptionActive': technicalDescription}">
+        <input type="radio" id="techInf" name="infoButtons" (click)="technicalDescription = true" autocomplete="off">
         <label for="techInf" id="technicalInformationLabel">Socks Information</label>
 
       </li>
-      <li>
-        <input type="radio" id="prodDesc" name="infoButtons" value="false" autocomplete="off">
+      <li [ngClass]="{'descriptionActive': !technicalDescription}">
+        <input type="radio" id="prodDesc" name="infoButtons" (click)="technicalDescription = false" autocomplete="off">
         <label for="prodDesc" id="productDescriptionLabel">Product description</label>
       </li>
     </ul>
   </div>
 
-  <div class="technicalInfoContainer">
+  <div class="technicalInfoContainer" *ngIf="technicalDescription">
 
     <table>
       <tr>
@@ -102,7 +102,7 @@
 
   </div>
 
-  <div class="productDescriptionContainer">
+  <div class="productDescriptionContainer" *ngIf="!technicalDescription">
 
     <div class="firstRow">
       <div class="leftContainer">

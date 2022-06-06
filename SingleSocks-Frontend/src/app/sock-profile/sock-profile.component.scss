@@ -218,23 +218,23 @@
 
     }
 
-    #technicalInformationLabel, #productDescriptionLabel {
+    label {
       cursor: pointer;
       //text-align: center;
 
       border-radius: 20px;
       transition: background-color .3s;
       max-width: 250px;
-      background-color: #084057;
-      color: #c1e3f3;
-      padding: 25px;
-
-    }
-
-    #productDescriptionLabel {
       background-color: rgba(206, 232, 248, 0.8);
       color: #084057;
+      padding: 25px;
+    }
 
+    .descriptionActive {
+      label {
+        background-color: #084057;
+        color: #c1e3f3;
+      }
     }
 
     input {
@@ -282,9 +282,6 @@
 }
 
 .productDescriptionContainer {
-
-  display: none;
-
   .firstRow, .secondRow {
     display: flex;
 

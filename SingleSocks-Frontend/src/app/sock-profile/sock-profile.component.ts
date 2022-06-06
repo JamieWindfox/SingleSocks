@@ -9,6 +9,8 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class SockProfileComponent implements OnInit {
 
+  technicalDescription = true;
+
   // TODO get sock by Id
   socks: SockProfile[] = [
     {
