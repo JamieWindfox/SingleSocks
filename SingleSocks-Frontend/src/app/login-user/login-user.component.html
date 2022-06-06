@@ -1,24 +1,18 @@
 <h1>Login</h1>
 
 <main>
-  <br>
-  <!--TODO-->
-  <form action="angularized_pages/app.userProfile.html">
-    <section>
-      <p>
-        <label for="userEmailInput"><b>E-Mail address</b>: </label>
-        <input type="text" id="userEmailInput" name="userEmail">
-      </p>
-      <p>
-        <label id="userPassword-lbl" for="userPasswordInput"><b>Password</b>: </label>
-        <input type="password" id="userPasswordInput" name="userPassword">
-      </p>
-    </section>
+  <div class="styleForm">
+    <form action="index.html" id="loginForm" class="loginForm">
+      <input id="usernameInput" type="text" placeholder="username / e-mail" required/>
+      <input id="passwordInput" type="password" placeholder="password" required/>
 
-    <p>
-      <br>
-      <input type="submit" value="Login">
-    </p>
+      <div class="buttonFlex">
+        <button id="submitButton" class="submitButton" title="Sign In" type="submit" value="send">Login</button>
+        <button id="resetButton" class="resetButton" title="reset" type="reset">Reset</button>
+      </div>
 
-  </form>
+      <!-- TODO -->
+      <p>Not yet registered?<a title="Create new account" href="register.html">Sign Up</a></p>
+    </form>
+  </div>
 </main>

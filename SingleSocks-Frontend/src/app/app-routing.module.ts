@@ -9,6 +9,7 @@ import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {DiyCornerComponent} from "./diy-corner/diy-corner.component";
 import {RegisterUserComponent} from "./register-user/register-user.component";
 import {RoutePath} from "./SingleSockLink";
+import {LoginUserComponent} from "./login-user/login-user.component";
 
 const routes: Routes = [
   {path: RoutePath.HOME, component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: RoutePath.DONATE, component: DonateComponent},
   {path: RoutePath.DIY, component: DiyCornerComponent},
   {path: 'create', component: CreateSocksComponent}, // TODO
+  {path: RoutePath.LOGIN, component: LoginUserComponent},
   {path: RoutePath.REGISTER, component: RegisterUserComponent},
   {path: 'sock/:id', component: SockProfileComponent}, // TODO
   {path: 'user/:id', component: UserProfileComponent}, // TODO,

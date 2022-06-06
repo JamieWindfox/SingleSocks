@@ -67,22 +67,6 @@
   }
 }
 
-:root {
-  scroll-behavior: smooth;
-  background-color: transparent;
-
-  --ff-heading: "Poppins", sans-serif;
-  --ff-subHeading: "Sathu", sans-serif;
-  --ff-body: "Arial", serif;
-
-  --fs-heading: clamp(1.5rem, 7vw, 7rem);
-  --fs-subHeading: clamp(1rem, 3vw, 4rem);
-
-  --fc-white: white;
-  --fc-black: black;
-}
-
-
 header {
   display: flex;
 
@@ -106,14 +90,14 @@ header {
     h2 {
       font-family: var(--ff-heading);
       font-size: var(--fs-heading);
-      color: var(--fc-white);
+      color: var(--fc-black);
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     p {
       font-family: var(--ff-subHeading);
       font-size: var(--fs-subHeading);
-      color: var(--fc-white);
+      color: var(--fc-black);
     }
   }
 }
