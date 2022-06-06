@@ -1,25 +1,221 @@
-// Usually CSS looks like this whenever there are nested elements
-/*
-.div-a .p-a {
+@import "src/styles.scss";
 
-}
+@media screen {
 
-.div-a .p-b {
+  .collapsible-menu {
+    visibility: hidden;
+    width: 50%;
 
-}
-
-.div-a .p-c {
-
-}
-*/
-
-// With SCSS you can write it in the following way for better visibility
-.div-a {
-  .p-a {
+  }
+  .nav {
+    z-index: 3;
 
   }
 
-  .p-b {
+  .menuList {
+    display: flex;
+    visibility: visible;
 
+    li {
+      transition-duration: 400ms;
+
+      padding: 1rem 0 1rem 1rem;
+      margin: 0 0.5rem;
+
+      &:active, &:hover {
+        padding: 1rem 1.5rem;
+      }
+
+      * {
+        justify-content: right;
+      }
+    }
   }
+}
+
+@media screen and (max-width: 1080px) {
+
+  .collapsible-menu {
+    visibility: visible;
+    width: 30%;
+  }
+  .nav {
+    z-index: 2;
+  }
+
+  .menuList {
+    visibility: hidden;
+    display: block;
+    text-align: right;
+
+    padding: 2rem 1rem 1rem 1rem;
+
+
+    li {
+      transition-duration: 400ms;
+      margin: 0.5rem 0;
+
+      * {
+        justify-content: right;
+      }
+
+      &:first-child {
+        margin-top: 3.5rem;
+
+      }
+    }
+  }
+}
+
+:root {
+  scroll-behavior: smooth;
+  background-color: transparent;
+
+  --ff-heading: "Poppins", sans-serif;
+  --ff-subHeading: "Sathu", sans-serif;
+  --ff-body: "Arial", serif;
+
+  --fs-heading: clamp(1.5rem, 7vw, 7rem);
+  --fs-subHeading: clamp(1rem, 3vw, 4rem);
+
+  --fc-white: white;
+  --fc-black: black;
+}
+
+
+header {
+  display: flex;
+
+  transition: .6s;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  background-image: url("/assets/longsocks.png");
+
+  .slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include paddingContent;
+    color: $secondaryColor;
+    width: 100%;
+
+    h2 {
+      font-family: var(--ff-heading);
+      font-size: var(--fs-heading);
+      color: var(--fc-white);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-family: var(--ff-subHeading);
+      font-size: var(--fs-subHeading);
+      color: var(--fc-white);
+    }
+  }
+}
+
+nav {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  ul {
+
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+
+    display: flex;
+    list-style: none;
+
+    background-color: white;
+    @include shadow(outside);
+
+    li {
+      border-radius: 3rem;
+
+      a {
+        font-size: $textFontSize;
+        text-decoration: none;
+        color: var(--fc-black);
+
+        display: flex;
+        gap: 0.5rem;
+
+        svg {
+          width: 1.5rem;
+        }
+
+        .beside-icon {
+          font-size: 110%;
+          margin-top: 0.1rem;
+        }
+      }
+
+      &:active, &:hover {
+        background-color: $secondaryColor;
+        @include shadow(outside);
+
+        padding: 1rem 1.5rem;
+        transition-duration: 400ms;
+
+        svg {
+          fill: $tertiaryColor;
+        }
+
+        a {
+          color: $tertiaryColor;
+        }
+      }
+    }
+  }
+}
+
+.collapsible-menu {
+  background-color: white;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  z-index: 2;
+  min-width: fit-content;
+  padding: 0.4rem 1rem;
+  border-radius: 3rem;
+  top: 1rem;
+  right: 1rem;
+
+  @include shadow(outside);
+}
+
+.menu-icons {
+  font-size: 220%;
+  color: #0a4a65;
+
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+
+#barLabel {
+  font-size: 220%;
+  color: #0a4a65;
+
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
 }

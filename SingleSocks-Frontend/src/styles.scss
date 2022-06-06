@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap");
+
+
+$media: (
+  sm: 640px, md: 768px,
+  lg: 1024px, xl: 1280px,
+  2 xl: 1536px, 3 xl: 1920px,
+);
+
+@mixin md($breakpoint) {
+  @each $breakpoints, $size in $media {
+    @if $breakpoint==$breakpoints {
+      @media screen and (min-width: $size) {
+        @content;
+      }
+    }
+  }
+}
+
+
+@mixin paddingContent {
+  padding: 1rem 2rem;
+}
+
+@mixin shadow($type) {
+  @if ($type == "outside") {
+    // offset-x | offset-y | blur-radius | spread-radius | color
+    box-shadow: 0 2px 5px 0 rgba(50, 50, 50, 0.3);
+  } @else {
+    box-shadow: inset 0 2px 5px 0 rgba(50, 50, 50, 0.3);
+  }
+}
+
+
+$mainColor: #fff;
+$secondaryColor: #0a4a65;
+$tertiaryColor: #c1e3f3;
+
+$textFontSize: 18px;
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+

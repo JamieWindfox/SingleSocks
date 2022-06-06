@@ -16,6 +16,7 @@ import {RegisterUserComponent} from './register-user/register-user.component';
 import {LoginUserComponent} from './login-user/login-user.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
+import {FooterComponent} from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {HttpClientModule} from "@angular/common/http";
     SockProfileComponent,
     UserProfileComponent,
     RegisterUserComponent,
-    LoginUserComponent
+    LoginUserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

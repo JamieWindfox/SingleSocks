@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,14 +7,10 @@ import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
 })
 export class UserProfileComponent implements OnInit {
 
-  linkList: SingleSockLinkList;
-  authLinkList: AuthLinkList;
-
   constructor() { }
 
   ngOnInit(): void {
-    this.linkList = new SingleSockLinkList();
-    this.authLinkList = new AuthLinkList();
+
   }
 
 }

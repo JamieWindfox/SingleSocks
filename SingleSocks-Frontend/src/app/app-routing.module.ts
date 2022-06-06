@@ -18,7 +18,8 @@ const routes: Routes = [
   {path: 'create', component: CreateSocksComponent}, // TODO
   {path: RoutePath.REGISTER, component: RegisterUserComponent},
   {path: 'sock/:id', component: SockProfileComponent}, // TODO
-  {path: 'user/:id', component: UserProfileComponent}, // TODO
+  {path: 'user/:id', component: UserProfileComponent}, // TODO,
+  {path: '', redirectTo: RoutePath.HOME, pathMatch: 'full'}
   // TODO "Give away socks"
 ];
 
