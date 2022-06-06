@@ -3,85 +3,19 @@
   <!-- section for highlighted socks -->
   <section class="featuredSocks">
 
-    <article>
-      <img src="assets/greysocks.png">
+    <article *ngFor="let sock of socks">
+      <img src="assets/{{sock.picture}}">
       <ul>
-        <li><p><strong>Grey Pair</strong></p></li>
-        <li><p>Searching for: a new home</p></li>
-        <li><p>Size: 43</p></li>
-        <li><p>Condition: pretty good</p></li>
+        <li><p><strong>{{sock.name}}</strong></p></li>
+        <li><p>Searching for: {{sock.searchingFor}}</p></li>
+        <li><p>Size: {{sock.size}}</p></li>
+        <li><p>Condition: {{sock.condition}}</p></li>
         <li>
-          <button title="go to shop">&#9989; I want them!</button>
+          <button title="go to shop" *ngIf="!sock.searchingFor.includes('match')">&#9989; I want them!</button>
+          <button title="go to shop" *ngIf="sock.searchingFor.includes('match')">&#10024; Thats my match!</button>
         </li>
       </ul>
     </article>
-
-    <article>
-      <img src="assets/redsinglesock.png">
-      <ul>
-        <li><p><strong>Red Single</strong></p></li>
-        <li><p>Searching for: a match</p></li>
-        <li><p>Size: 36</p></li>
-        <li><p>Condition: good</p></li>
-        <li>
-          <button title="go to shop">&#10024; Thats my match!</button>
-        </li>
-      </ul>
-    </article>
-
-    <article>
-      <img src="assets/bluestripesocks.png">
-      <ul>
-        <li><p><strong>Blue Striped</strong></p></li>
-        <li><p>Searching for: a new home</p></li>
-        <li><p>Size: 38</p></li>
-        <li><p>Condition: new</p></li>
-        <li>
-          <button title="go to shop">&#9989; I want them!</button>
-        </li>
-      </ul>
-    </article>
-
-    <article>
-      <img src="assets/whiteadidasstripe.png">
-      <ul>
-        <li><p><strong>White Adidas Stripe</strong></p></li>
-        <li><p>Searching for: a match</p></li>
-        <li><p>Size: 40</p></li>
-        <li><p>Condition: good as new</p></li>
-        <li>
-          <button title="go to shop">&#10024; Thats my match!</button>
-        </li>
-      </ul>
-    </article>
-
-    <article>
-      <img src="assets/redsinglesock.png">
-      <ul>
-        <li><p><strong>Model Red Single Sock</strong></p></li>
-        <li><p>Searching for: a match</p></li>
-        <li><p>Size: 36</p></li>
-        <li><p>Condition: good</p></li>
-        <li>
-          <button title="go to shop">&#10024; Thats my match!</button>
-        </li>
-      </ul>
-    </article>
-
-    <article>
-      <img src="assets/redsinglesock.png">
-      <ul>
-        <li><p><strong>Model Red Single Sock</strong></p></li>
-        <li><p>Searching for: a match</p></li>
-        <li><p>Size: 36</p></li>
-        <li><p>Condition: good</p></li>
-        <li>
-          <button title="go to shop">&#10024; Thats my match!</button>
-        </li>
-      </ul>
-    </article>
-
-
   </section>
 
   <!-- section for diy -->
