@@ -91,13 +91,14 @@ header {
       font-family: var(--ff-heading);
       font-size: var(--fs-heading);
       color: var(--fc-black);
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      text-shadow: 1px 1px 5px rgb(255, 255, 255);
     }
 
     p {
       font-family: var(--ff-subHeading);
       font-size: var(--fs-subHeading);
       color: var(--fc-black);
+      text-shadow: 1px 1px 5px rgb(255, 255, 255);
     }
   }
 }
