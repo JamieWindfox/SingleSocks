@@ -17,10 +17,6 @@ main {
     -ms-overflow-style: none;
     scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
     display: flex;
     overflow-y: hidden;
     padding: 6rem 4rem;
@@ -55,8 +51,8 @@ main {
 
       img {
         position: relative;
-        left: -25%;
-        top: -20%;
+        left: 75%;
+        top: -10%;
         width: 45%;
       }
 
