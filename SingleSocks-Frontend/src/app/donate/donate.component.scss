@@ -1,5 +1,50 @@
-#map {
-  height: 500px;
-  margin-left: 20px;
-  margin-right: 20px;
+@import "src/styles.scss";
+
+main {
+
+  .DonationHeader {
+    background-color: $secondaryColor;
+    h1 {
+      color: white;
+      font-size: xx-large;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+  }
+
+  #ngo_section{
+    font-size: x-large;
+    p{
+      background-color: #eeeeee;
+      text-align: center;
+    }
+  }
+
+
+  .Map {
+    height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  label {
+    float: right;
+    margin-right:250px;
+    margin-top: 35px;
+    width: 500px;
+  }
+
+  input {
+    float: left;
+    margin-left: 350px;
+    margin-top: 50px;
+  }
+
+  .clear {
+    clear: both;
+  }
+
 }
+
+

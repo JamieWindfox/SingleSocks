@@ -1,7 +1,9 @@
-<h1>Find Sock(s)</h1>
+<section id="FindSocksHeader" class="FindSocksHeader">
+  <h1>Find Sock(s)</h1>
+</section>
 <main>
 
-  <section id="filter_section">
+  <section id="filter_section" class="filter_section">
     <table>
       <tr>
         <td><label for="mainColour">Main colour</label></td>
@@ -35,29 +37,27 @@
     </table>
   </section><br>
 
-  <section id="sort_section">
+  <section id="sort_section" class="sort_section">
     Sort Socks by
     <button type="button" id="sort_newest_button" onclick="sortByNewest()">Newest</button>
+    <div class="space"></div>
     <button type="button" id="sort_oldest_button" onclick="sortByOldest()">Oldest</button>
-    <button type="button" id="sort_lonliest_button" onclick="sortByLonliest()">Lonliest</button>
+    <div class="space"></div>
+    <button type="button" id="sort_lonliest_button" onclick="sortByLonliest()">Loneliest</button>
+    <div class="space"></div>
     <button type="button" id="sort_closest_button" onclick="sortByClosest()">Closest</button>
+    <div class="space"></div>
   </section>
 
   <section id="sock_showcase_section" name="showcase">
     <section>
-      <div class="HeaderShop">
-        <ul>
-          <li><a>Featured Socks</a></li>
-        </ul>
-      </div>
-
-      <section class="ProductsShop">
+      <section class="SockLovers">
 
         <article>
           <img src="assets/redsinglesock.png">
           <ul>
-            <li><p>Red Single</p></li>
-            <li><p>XXXXXX</p></li>
+            <li><p><strong>Red Single</strong></p></li>
+            <li><p>Click here for details!</p></li>
             <li>
               <button>Select Product</button>
             </li>
@@ -67,8 +67,8 @@
         <article>
           <img src="assets/bluestripesocks.png">
           <ul>
-            <li><p>XXXX</p></li>
-            <li><p>XXXX</p></li>
+            <li><p><strong>Blue Stripe</strong></p></li>
+            <li><p>Click here for details!</p></li>
             <li>
               <button>Select Product</button>
             </li>
@@ -78,8 +78,8 @@
         <article>
           <img src="assets/greysocks.png">
           <ul>
-            <li><p>XXXX</p></li>
-            <li><p>XXXX</p></li>
+            <li><p><strong>Grey Blank</strong></p></li>
+            <li><p>Click here for details!</p></li>
             <li>
               <button>Select Product</button>
             </li>
@@ -89,8 +89,8 @@
         <article>
           <img src="assets/bluestripesocks.png">
           <ul>
-            <li><p>XXXX</p></li>
-            <li><p>XXXX</p></li>
+            <li><p><strong>Blue Stripe</strong></p></li>
+            <li><p>Click here for details!</p></li>
             <li>
               <button>Select Product</button>
             </li>
@@ -100,8 +100,8 @@
         <article>
           <img src="assets/redsinglesock.png">
           <ul>
-            <li><p>XXXX</p></li>
-            <li><p>XXXX</p></li>
+            <li><p><strong>Red Single</strong></p></li>
+            <li><p>Click here for details!</p></li>
             <li>
               <button>Select Product</button>
             </li>
@@ -111,8 +111,8 @@
         <article>
           <img src="assets/redsinglesock.png">
           <ul>
-            <li><p>XXXX</p></li>
-            <li><p>XXXX</p></li>
+            <li><p><strong>Red Single</strong></p></li>
+            <li><p>Click here for details!</p></li>
             <li>
               <button>Select Product</button>
             </li>
@@ -123,19 +123,66 @@
       </section>
     </section>
     <footer>
-
-      <div class="HeaderShop">
-        <ul>
-          <li><a>Other Sock Lovers</a></li>
-        </ul>
-      </div>
-
-      <section class="ProductsShop">
+      <br>
+      <br>
+      <section id="ProfileHeader" class="ProfileHeader">
+        <h1>Other Socklovers</h1>
+      </section>
+      <section class="SockLovers">
         <article>
           <img src="assets/profile.png">
           <ul>
-            <li><p>Name</p></li>
-            <li><p>XXXX</p></li>
+            <li><p></p></li>
+            <li><p><strong>Maria Musterfrau</strong></p></li>
+            <li><p>Searches for a sock-match</p></li>
+            <li>
+              <button>Show Profile</button>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <img src="../../assets/profile1.png">
+          <ul>
+            <li><p></p></li>
+            <li><p><strong>Mario Mustermann</strong></p></li>
+            <li><p>Searches for a sock-match</p></li>
+            <li>
+              <button>Show Profile</button>
+            </li>
+          </ul>
+        </article>
+        <article>
+          <img src="../../assets/profile.png">
+          <ul>
+            <li><p></p></li>
+            <li><p><strong>Sabrina Sock</strong></p></li>
+            <li><p>Wants to donate a sock</p></li>
+            <li>
+              <button>Show Profile</button>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <img src="assets/profile1.png">
+          <ul>
+            <li><p></p></li>
+            <li><p><strong>Sebastian Sandal</strong></p></li>
+            <li><p>Wants to know more about DIY</p></li>
+            <li>
+              <button>Show Profile</button>
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <img src="assets/profile2.png">
+          <ul>
+            <li><p></p></li>
+            <li><p> </p></li>
+            <li><p><strong>Petra Pride</strong></p></li>
+            <li><p>Wants to create rainbow socks</p></li>
             <li>
               <button>Show Profile</button>
             </li>
@@ -145,18 +192,9 @@
         <article>
           <img src="assets/profile.png">
           <ul>
-            <li><p>Name</p></li>
-            <li><p>XXXX</p></li>
-            <li>
-              <button>Show Profile</button>
-            </li>
-          </ul>
-        </article>
-        <article>
-          <img src="assets/profile.png">
-          <ul>
-            <li><p>Name</p></li>
-            <li><p>XXXX</p></li>
+            <li><p></p></li>
+            <li><p><strong>Christa Blecha</strong></p></li>
+            <li><p>&#x2757;Loves this presentation&#x2757;</p></li>
             <li>
               <button>Show Profile</button>
             </li>
@@ -164,32 +202,11 @@
         </article>
 
         <article>
-          <img src="assets/profile.png">
+          <img src="assets/profile1.png">
           <ul>
-            <li><p>Name</p></li>
-            <li><p>XXXX</p></li>
-            <li>
-              <button>Show Profile</button>
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <img src="assets/profile.png">
-          <ul>
-            <li><p>Name</p></li>
-            <li><p>XXXX</p></li>
-            <li>
-              <button>Show Profile</button>
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <img src="assets/profile.png">
-          <ul>
-            <li><p>Name</p></li>
-            <li><p>XXXX</p></li>
+            <li><p></p></li>
+            <li><p><strong>Bernhard Taufner</strong></p></li>
+            <li><p>&#x2757;Also loves this presentation&#x2757;</p></li>
             <li>
               <button>Show Profile</button>
             </li>

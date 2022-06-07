@@ -47,7 +47,7 @@ html body nav ul li:active a, html body nav ul li:hover a {
   color: #c1e3f3;
 }
 
-html body main .ProductsShop {
+html body main .SockLovers {
   -ms-overflow-style: none;
   scrollbar-width: none;
   display: flex;
@@ -59,19 +59,19 @@ html body main .ProductsShop {
   box-shadow: inset 0 2px 5px 0 rgba(50, 50, 50, 0.3);
 }
 
-html body main .ProductsShop::-webkit-scrollbar {
+html body main .SockLovers::-webkit-scrollbar {
   display: none;
 }
 
-html body main .ProductsShop:first-child {
+html body main .SockLovers:first-child {
   padding-left: 4rem;
 }
 
-html body main .ProductsShop:last-child {
+html body main .SockLovers:last-child {
   padding-right: 4rem;
 }
 
-html body main .ProductsShop article {
+html body main .SockLovers article {
   display: inline-block;
   flex-direction: row;
   min-width: 250px;
@@ -84,14 +84,14 @@ html body main .ProductsShop article {
   justify-items: flex-start;
 }
 
-html body main .ProductsShop article img {
+html body main .SockLovers article img {
   position: relative;
   left: -25%;
   top: -20%;
   width: 45%;
 }
 
-html body main .ProductsShop article ul {
+html body main .SockLovers article ul {
   position: relative;
   top: -140px;
   display: flex;
@@ -105,11 +105,11 @@ html body main .ProductsShop article ul {
   list-style: none;
 }
 
-html body main .ProductsShop article ul li {
+html body main .SockLovers article ul li {
   display: block;
 }
 
-html body main .ProductsShop article ul li button {
+html body main .SockLovers article ul li button {
   padding: 1rem;
   border-style: none;
   background-color: #97c9de;
@@ -117,7 +117,7 @@ html body main .ProductsShop article ul li button {
   transition-duration: 500ms;
 }
 
-html body main .ProductsShop article ul li button:active, html body main .ProductsShop article ul li button:hover {
+html body main .SockLovers article ul li button:active, html body main .SockLovers article ul li button:hover {
   background-color: #0a4a65;
   border-radius: 1.75rem;
   color: white;
@@ -127,7 +127,7 @@ html body main .ProductsShop article ul li button:active, html body main .Produc
 
 }
 
-.ProductsShop{
+.SockLovers{
   @media screen and (max-width: 2100px){
     display: flex;
     flex-flow: row wrap;

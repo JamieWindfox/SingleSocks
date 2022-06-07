@@ -1,5 +1,40 @@
 @import "src/styles.scss";
 
+  .FindSocksHeader{
+    background-color: $secondaryColor;
+    h1{
+      color: white;
+      font-size: xx-large;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+  }
+.filter_section {
+  background-color: #eeeeee;
+  font-size: x-large;
+  padding: 1rem 1rem;
+  border-spacing: 2rem;
+  border-spacing: 16px;
+
+  .td{
+    text-align: center;
+  }
+
+  table {
+    border-spacing: 30px;
+  }
+}
+
+.sort_section{
+    font-size: x-large;
+    padding: 1rem 1rem;
+  text-align: right;
+  .space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+  }
+  }
 
 nav ul li a {
   font-size: 16px;
@@ -18,51 +53,51 @@ nav ul li:active a, nav ul li:hover a {
   color: #c1e3f3;
 }
 
-main .ProductsShop {
+main .SockLovers {
   -ms-overflow-style: none;
   scrollbar-width: none;
   display: flex;
   overflow-y: hidden;
-  padding: 6rem 4rem;
-  margin: 0rem 1rem;
+  padding: 5rem 5rem;
+  margin: 0 1rem;
   column-gap: 4rem;
-  background-color: white;
+  background-color: #eeeeee;
   box-shadow: inset 0 2px 5px 0 rgba(50, 50, 50, 0.3);
 }
 
-main .ProductsShop::-webkit-scrollbar {
+main .SockLovers::-webkit-scrollbar {
   display: none;
 }
 
-main .ProductsShop:first-child {
+main .SockLovers:first-child {
   padding-left: 4rem;
 }
 
-main .ProductsShop:last-child {
+main .SockLovers:last-child {
   padding-right: 4rem;
 }
 
-main .ProductsShop article {
+main .SockLovers article {
   display: inline-block;
   flex-direction: row;
   min-width: 250px;
   min-height: 300px;
   max-width: 250px;
   max-height: 300px;
-  background-color: #eee;
+  background-color: white;
   border-radius: 1.75rem;
   box-shadow: inset 0 2px 5px 0 rgba(50, 50, 50, 0.3);
   justify-items: flex-start;
 }
 
-main .ProductsShop article img {
+main .SockLovers article img {
   position: relative;
-  left: -25%;
-  top: -20%;
+  left: 75%;
+  top: -15%;
   width: 45%;
 }
 
-main .ProductsShop article ul {
+main .SockLovers article ul {
   position: relative;
   top: -140px;
   display: flex;
@@ -76,11 +111,11 @@ main .ProductsShop article ul {
   list-style: none;
 }
 
-main .ProductsShop article ul li {
+main .SockLovers article ul li {
   display: block;
 }
 
-main .ProductsShop article ul li button {
+main .SockLovers article ul li button {
   padding: 1rem;
   border-style: none;
   background-color: #97c9de;
@@ -88,7 +123,7 @@ main .ProductsShop article ul li button {
   transition-duration: 500ms;
 }
 
-main .ProductsShop article ul li button:active, main .ProductsShop article ul li button:hover {
+main .SockLovers article ul li button:active, main .SockLovers article ul li button:hover {
   background-color: #0a4a65;
   border-radius: 1.75rem;
   color: white;
@@ -98,7 +133,7 @@ main .ProductsShop article ul li button:active, main .ProductsShop article ul li
 }
 
 @media screen and (max-width: 2100px) {
-  .ProductsShop {
+  .SockLovers {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -107,23 +142,14 @@ main .ProductsShop article ul li button:active, main .ProductsShop article ul li
   }
 }
 
-.HeaderShop {
-  background-color: #0a4a65;
-  min-width: 140px;
-  max-width: 140px;
-  border-radius: 3rem 3rem 0rem 0rem;
-  margin-left: 1rem;
-}
-
-.HeaderShop ul {
-  list-style: none;
-  color: #97c9de;
-  margin-top: 2rem;
-  padding: 0.5rem 1rem;
-}
-
-.HeaderShop ul li {
-  text-align: center;
+.ProfileHeader{
+  background-color: $secondaryColor;
+  h1{
+    color: white;
+    font-size: x-large;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
 }
 
 .filterList {
