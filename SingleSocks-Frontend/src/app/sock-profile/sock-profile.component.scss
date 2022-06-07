@@ -1,3 +1,15 @@
+@import "src/styles.scss";
+
+.SockHeader{
+  background-color: $secondaryColor;
+  h1{
+    color: white;
+    font-size: xx-large;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+}
+
 @media screen {
   .firstRow, .secondRow {
 
@@ -40,7 +52,7 @@
 
   display: flex;
   align-items: stretch;
-  margin: 150px 30px 10px 30px;
+  margin: 30px 30px 10px 30px;
 
   .productImage {
     text-align: center;
@@ -97,7 +109,6 @@
       .productPrice {
 
         padding: 20px;
-        color: #084057;
         font-size: 190%;
       }
     }
@@ -145,11 +156,7 @@
         -moz-appearance: none;
         appearance: none;
 
-        border-right: none;
-        border-top: none;
-        border-left: 2px solid #084057;
-        border-bottom: 3px solid #084057;
-        border-radius: 8px;
+        border: none;
 
         padding: 4px 14px 4px 8px;
         margin-left: 8px;
@@ -169,7 +176,6 @@
         border: none;
 
         background-color: rgb(146, 194, 214);
-        color: #084057;
 
         width: 200px;
         margin: 20px;
@@ -226,7 +232,6 @@
       transition: background-color .3s;
       max-width: 250px;
       background-color: rgba(206, 232, 248, 0.8);
-      color: #084057;
       padding: 25px;
     }
 
@@ -246,11 +251,6 @@
 .technicalInfoContainer, .productDescriptionContainer {
 
   display: block;
-
-  border-radius: 12px;
-  border-left: 3px solid #084057;
-  border-bottom: 3px solid #084057;
-
   padding: 30px;
   margin: 0 30px 30px 30px;
 

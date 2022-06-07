@@ -1,5 +1,6 @@
-<h1>Register</h1>
-
+<section class="RegisterHeader">
+  <h1>Register now!</h1>
+</section>
 <main>
   <br>
   <form action="angularized_pages/app.userProfile.html">
@@ -15,8 +16,7 @@
       <p>
         <label id="userPassword-lbl" for="userPasswordInput"><b>Choose a password</b> (not visible to others): </label>
         <input type="password" id="userPasswordInput" name="userPassword">
-      <p><label id="passwordSecurityTipp-lbl">Your password should be between 8 and 20 signs long,<br>include capitals and lower letters, numbers and can contain<br>the following special characters: !$%&/()=?*+-_,.:; and no<br>whitespace.</label>
-      </p>
+      <p id="passwordSecurityTipp-lbl">❗Your password must be between 8 and 20 signs long, include capital and lower letters, numbers and contain the following special characters: !$%&/()=?*❗</p>
     </section>
 
     <section>
@@ -27,10 +27,10 @@
     </section>
 
     <p>
-      <button id="modifyUser-btn">Modify Profile</button>
+      <button class="User-btn">Modify Profile</button>
     </p>
     <p>
-      <input type="submit" value="Create UserProfile">
+      <input type="submit" value="Create UserProfile" class="User-btn">
     </p>
 
   </form>

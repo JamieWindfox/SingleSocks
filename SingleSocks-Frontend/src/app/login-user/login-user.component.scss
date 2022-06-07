@@ -1,11 +1,18 @@
 @import "src/styles.scss";
 
-main {
+.LoginHeader{
   background-color: $secondaryColor;
-  height: 100vh;
+  h1{
+    color: white;
+    font-size: xx-large;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+}
+main {
+  background-color: white;
   width: 100vw;
-
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
 

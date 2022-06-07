@@ -1,5 +1,43 @@
-#map {
-  height: 500px;
-  margin-left: 20px;
-  margin-right: 20px;
+@import "src/styles.scss";
+
+.RegisterHeader{
+  background-color: $secondaryColor;
+  h1{
+    color: white;
+    font-size: xx-large;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+}
+
+main {
+  label {
+    font-size: x-large;
+    padding-left: 2rem;
+  }
+
+  #passwordSecurityTipp-lbl {
+    font-size: medium;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  #chooseLocation {
+    font-size: x-large;
+    padding-left: 2rem;
+    background-color: #eeeeee;
+    text-align: center;
+  }
+
+  #map {
+    height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .User-btn{
+    font-size: medium;
+    align-content: center;
+  }
 }
