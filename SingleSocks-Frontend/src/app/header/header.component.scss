@@ -4,7 +4,6 @@
 
   .collapsible-menu {
     visibility: hidden;
-    width: 50%;
 
   }
   .nav {
@@ -37,7 +36,6 @@
 
   .collapsible-menu {
     visibility: visible;
-    width: 30%;
   }
   .nav {
     z-index: 2;
@@ -127,7 +125,7 @@ nav {
   background-color: white;
   position: fixed;
   display: flex;
-  align-items: center;
+  align-items: right;
   justify-content: space-between;
 
 
@@ -139,6 +137,48 @@ nav {
   right: 1rem;
 
   @include shadow(outside);
+}
+
+.collapsible-menu-items {
+  ul {
+    list-style-type: none;
+
+    li {
+      vertical-align: middle;
+      text-align: center;
+      padding: 0.5rem;
+
+      a {
+        font-size: $textFontSize * 1.2;
+        text-decoration: none;
+        color: var(--fc-black);
+
+        svg {
+          width: 1.5rem;
+          margin-left: 0.5rem;
+        }
+
+        i {
+          margin-left: 0.5rem;
+        }
+      }
+
+      &:active, &:hover {
+        background-color: $secondaryColor;
+        @include shadow(outside);
+
+        transition-duration: 400ms;
+
+        svg {
+          fill: $tertiaryColor;
+        }
+
+        a {
+          color: $tertiaryColor;
+        }
+      }
+    }
+  }
 }
 
 .menu-icons {
@@ -162,6 +202,10 @@ nav {
 
   transition: background-color 0.4s;
   cursor: pointer;
+}
+
+.menuBars {
+  text-align: right;
 }
 
 ul[role="list"],

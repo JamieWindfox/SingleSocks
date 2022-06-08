@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
 
   linkList = new SingleSockLinkList();
   authLinkList = new AuthLinkList();
+  isMenuVisible = true;
 
   ngOnInit(): void {
 

@@ -17,12 +17,26 @@
   </ul>
 </nav>
 
-<!-- TODO -->
 <div class="collapsible-menu">
-  <a class="menu-icons" id="icon1" href="index.html"><i class="fa-solid fa-bag-shopping"></i></a>
-  <a class="menu-icons" id="icon2" href="socks.html"><i class="fa-solid fa-bag-shopping"></i></a>
   <div class="menuBars">
-    <label for="collapsible" id="barLabel"><i class="fa-solid fa-bars bars"></i></label>
-    <input type="checkbox" id="collapsible" autocomplete="off">
+    <span id="barLabel" (click)="isMenuVisible = !isMenuVisible"><i class="fa-solid fa-bars bars"></i></span>
+    <div *ngIf="isMenuVisible" class="ng-hide collapsible-menu-items">
+      <ul class="highlightActive">
+        <li *ngFor="let link of linkList.links">
+          <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
+            <span>{{link.name}}</span>
+            <svg class="svg-icon" viewBox="0 0 20 20">
+              <path [attr.d]="link.icon"></path>
+            </svg>
+          </a>
+        </li>
+        <li *ngFor="let link of authLinkList.links">
+          <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
+            <span>{{link.name}}</span>
+            <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
