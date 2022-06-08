@@ -13,6 +13,10 @@
     <br>
     <br>
     <div class="productInfo">
+      <br>
+      <br>
+      <br>
+      <br>
       <h2 id="productName">{{sock.name}}</h2>
       <p id="manufacturerName">Name of manufacturer: {{sock.manufacturer}}</p>
       <p class="productPrice">Searches for {{sock.searchingFor}}</p>
@@ -26,35 +30,24 @@
       </div>
 
       <div class="additionalInformation">
-        <p id="freeDelivery">Free standard shipping is included.</p>
-        <p id="fastestDelivery">You want the sock faster? Fastest delivery: Wednesday, May 25. Order within 4 hrs. 45
-          Min.</p>
         <p id="priceDelivery">Price for fastest delivery: {{sock.deliveryPrime}} €</p>
         <p id="available">Available</p>
       </div>
-      <div class="quantity">
-
-        <label for="amount" class="quantityLabel">Quantity:</label>
-        <select id="amount" class="quantitySelector">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-
+      <br>
+      <br>
+      <br>
+      <br>
       <img style="display: none" src="assets/downArrow.png">
       <!-- just there so that the arrow will be displayed-->
 
       <div class="buttons">
-        <button id="cartButton">Add to cart</button>
-        <button id="purchaseButton">Buy now</button>
+        <button id="cartButton">Add sock to cart</button>
+        <button id="purchaseButton">Fast check-out</button>
       </div>
 
       <div class="returnInfo">
         <p id="returnProduct">Returns are excluded for private sales. If you find any defects in the product, please
-          contact SingleSocks Headquarters directly at +436501234567. </p>
+          contact <strong>SingleSocks Headquarters</strong> directly at +436501234567. </p>
       </div>
 
     </div>
@@ -64,7 +57,7 @@
     <ul>
       <li [ngClass]="{'descriptionActive': technicalDescription}">
         <input type="radio" id="techInf" name="infoButtons" (click)="technicalDescription = true" autocomplete="off">
-        <label for="techInf" id="technicalInformationLabel">Socks Information</label>
+        <label for="techInf" id="technicalInformationLabel">Sock Information</label>
 
       </li>
       <li [ngClass]="{'descriptionActive': !technicalDescription}">
@@ -88,18 +81,6 @@
       <tr>
         <th>Condition:</th>
         <td>{{sock.condition}}</td>
-      </tr>
-      <tr>
-        <th>Another value:</th>
-        <td>some value</td>
-      </tr>
-      <tr>
-        <th>Another value:</th>
-        <td>some value</td>
-      </tr>
-      <tr>
-        <th>Another value:</th>
-        <td>some value</td>
       </tr>
     </table>
 
