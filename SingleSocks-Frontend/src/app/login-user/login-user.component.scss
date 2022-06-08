@@ -10,7 +10,7 @@
   }
 }
 main {
-  background-color: white;
+  background-image: url("/assets/socksbackground.png");
   width: 100vw;
   height: 59vh;
   display: flex;
@@ -19,7 +19,7 @@ main {
 
   .styleForm {
     background-color: white;
-    //box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
 
     width: 70%;
