@@ -11,7 +11,7 @@ import {LatLngExpression} from 'leaflet';
 export class DonateComponent implements OnInit {
   ngoList: string[];
 
-  boxes = [[48.23, 16.36], [48.20, 16.5], [48.25, 16.45], [48.20, 16.35], [48.20, 16.4], [48.20, 16.3]]
+  boxes = [[48.23, 16.36], [48.20, 16.5], [48.25, 16.45], [48.20, 16.35], [48.20, 16.4], [48.20, 16.3], [48.22, 16.31], [48.20, 16.325], [48.23, 16.3], [48.17, 16.36]]
 
   constructor() {
   }
