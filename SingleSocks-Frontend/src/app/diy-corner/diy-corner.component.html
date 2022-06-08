@@ -1,18 +1,19 @@
-<section class="DiyHeader">
-  <h1>DIY - Corner</h1>
-</section>
+<h1>DIY Corner</h1>
+
 <br>
 <main>
   Placeholder for some instructions on how to repair holey socks and how to create new stuff out of old socks
   <section class="diy_section">
 
-    <div class="diy_fade">
+    <div class="diySlides fade" *ngIf="slideIndex==1" id="diy_1">
       <div class="number">1 / 3</div>
       <img src="../../assets/holeySocks.png" style="width:50%" alt="How to darn holey socks">
       <article>
         <h2>Darn Holey Socks</h2>
         <ol class="diy_description" id="darnHoleySocks_description">
-          <li>Prepare what you need: A holey sock, a needle, a thread in the color of the sock, a darning egg or a similar object.</li>
+          <li>Prepare what you need: A holey sock, a needle, a thread in the color of the sock, a darning egg or a
+            similar object.
+          </li>
           <li>Thread the needle with one or two strands of thread, depending on the weigth of the sock.</li>
           <li>Pull the sock over the darning egg and trim away any ragged edges from the sock fabric.</li>
           <li>Support the fabric around the hole with basic sewing stitches.</li>
@@ -23,13 +24,15 @@
       </article>
     </div>
 
-    <div class="mySlides fade">
+    <div class="diySlides fade" *ngIf="slideIndex==2" id="diy_2">
       <div class="number">2 / 3</div>
       <img src="../../assets/sockPuppets1.png" style="width:50%" alt="How to make sock puppets">
       <article>
         <h2>Sock Puppets</h2>
         <ol class="diy_description" id="sockPuppet_description">
-          <li>Prepare what you need: A sock, a needle, a thread, 2 buttons or googley eyes and optionally some felt and/or wool rests.</li>
+          <li>Prepare what you need: A sock, a needle, a thread, 2 buttons or googley eyes and optionally some felt
+            and/or wool rests.
+          </li>
           <li>Try the sock on and see how it fits to become a puppet.</li>
           <li>Attach the eyes to the place where it feels right, either by glueing or sewing them on.</li>
           <li>Glue and/or saw any remaining attachments on. Be creative! You can make all kinds of sock puppets!</li>
@@ -38,31 +41,39 @@
       </article>
     </div>
 
-    <div class="mySlides fade">
+    <div class="diySlides fade" *ngIf="slideIndex==3" id="diy_3">
       <div class="number">3 / 3</div>
       <img src="../../assets/SockMobileCase.PNG" style="width:50%" alt="How to make sport mobile case from a sock">
       <article>
         <h2>Sport Mobile Case</h2>
         <ol class="diy_description" id="sockPuppet_description>">
-          <li>Prepare what you need: A large sock, a smaller sock, a string, a needle, a thread, your mobile phone for measurements.</li>
+          <li>Prepare what you need: A large sock, a smaller sock, a string, a needle, a thread, your mobile phone for
+            measurements.
+          </li>
           <li>Cut away the toes of the large sock and put it on your upper or lower arm to see where it fits well.</li>
-          <li>Put your mobile phone into the smaller sock. It should fit in completely and leave a rim of about 3-5cm.</li>
-          <li>Saw the string into the rim of the smaller sock to be able to close it, that your mobile doesn't fall out.</li>
+          <li>Put your mobile phone into the smaller sock. It should fit in completely and leave a rim of about 3-5cm.
+          </li>
+          <li>Saw the string into the rim of the smaller sock to be able to close it, that your mobile doesn't fall
+            out.
+          </li>
           <li>Saw the small sock to the big one in the same direction.</li>
           <li>Happy running/biking with your phone attached to you without a pocket!</li>
         </ol>
       </article>
     </div>
 
-    <a class="prev" onclick="changeSlide(-1)">❮</a>
-    <a class="next" onclick="changeSlide(1)">❯</a>
+    <div>
+
+      <a class="prev" (click)="nextSlide()">❮</a>
+      <a class="next" (click)="nextSlide()">❯</a>
+    </div>
 
   </section>
   <br>
 
   <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" (click)="changeSlide(1)"></span>
+    <span class="dot" (click)="changeSlide(2)"></span>
+    <span class="dot" (click)="changeSlide(3)"></span>
   </div>
 </main>
