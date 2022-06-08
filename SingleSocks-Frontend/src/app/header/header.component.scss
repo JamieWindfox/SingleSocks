@@ -67,38 +67,6 @@
   }
 }
 
-header {
-  display: flex;
-  background-size: cover;
-  object-fit: cover;
-  aspect-ratio: 16 / 9;
-  background-image: url("/assets/longsocks.png");
-
-  .slogan {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    @include paddingContent;
-    color: $secondaryColor;
-    width: 100%;
-
-    h2 {
-      font-family: var(--ff-heading);
-      font-size: var(--fs-heading);
-      color: var(--fc-black);
-      text-shadow: 1px 1px 5px rgb(255, 255, 255);
-    }
-
-    p {
-      font-family: var(--ff-subHeading);
-      font-size: var(--fs-subHeading);
-      color: var(--fc-black);
-      text-shadow: 1px 1px 5px rgb(255, 255, 255);
-    }
-  }
-}
-
 nav {
   position: fixed;
   top: 1rem;
