@@ -19,17 +19,17 @@ main {
 
   .styleForm {
     background-color: white;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    //box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
 
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
 
     padding: 2rem;
 
     .loginForm {
       height: 100%;
-      font-size: 18px;
+      font-size: 20px;
 
       display: flex;
       flex-direction: column;
@@ -41,7 +41,7 @@ main {
         justify-content: space-evenly;
         width: 100%;
 
-        .resetButton {
+        /*.resetButton {
           width: 25%;
           transition-duration: 0.4s;
           background-color: $tertiaryColor;
@@ -60,7 +60,7 @@ main {
             width: 30%;
             transition-duration: 0.4s;
           }
-        }
+        }*/
 
         .submitButton {
           width: 50%;
