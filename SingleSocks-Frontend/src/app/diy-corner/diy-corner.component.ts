@@ -28,4 +28,12 @@ export class DiyCornerComponent implements OnInit {
     }
   }
 
+  prevSlide() {
+    if (this.slideIndex == 1) {
+      this.slideIndex = 3;
+    } else {
+      this.slideIndex--;
+    }
+  }
+
 }
