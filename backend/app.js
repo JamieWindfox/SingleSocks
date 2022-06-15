@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors')
 require('dotenv').config({path: 'sec/secrets.env'}); // Puts variables in process.env
 require('./auth/auth');
 
@@ -25,6 +26,7 @@ const client = mongoose.connect('mongodb+srv://cluster0.w91hd.mongodb.net/single
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 mongoose.connection.on('connected', (err, res) => { console.log('mongoose is connected') });
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
