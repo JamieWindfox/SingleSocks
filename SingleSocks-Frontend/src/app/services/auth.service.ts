@@ -30,6 +30,7 @@ export class AuthService {
   }
 
   getLoggedIn(): boolean {
+    // That's a security issue lol TODO
     return this.loggedIn;
   }
 }

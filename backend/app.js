@@ -24,29 +24,35 @@ const client = mongoose.connect('mongodb+srv://cluster0.w91hd.mongodb.net/single
     ssl: true
 });
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
-mongoose.connection.on('connected', (err, res) => { console.log('mongoose is connected') });
+mongoose.connection.on('connected', (err, res) => {
+  console.log('mongoose is connected')
+});
 
 app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 //app.use(lessMiddleware(path.join(__dirname, 'public')));
 //app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', require('./routes/users'));
-app.use('/socks', require('./routes/socks'));
-app.use('/containers', require('./routes/containers'));
-app.use('/auth', require('./routes/auth'));
-app.use('/attributes', require('./routes/attributes'));
+const router = express.Router();
+
+router.use('/users', require('./routes/users'));
+router.use('/socks', require('./routes/socks'));
+router.use('/containers', require('./routes/containers'));
+router.use('/auth', require('./routes/auth'));
+router.use('/attributes', require('./routes/attributes'));
+
+app.use("/api", router);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
+import {AuthService} from "../services/auth.service";
 
 
 const backgroundImg =
@@ -48,23 +49,10 @@ export class HeaderComponent implements OnInit {
   authLinkList = new AuthLinkList();
   isMenuVisible = true;
 
+  constructor(public authService: AuthService) {
+  }
+
   ngOnInit(): void {
-
-    if (innerWidth > 1080) {
-      //document.querySelector(".collapsible-menu").style.transition = "400ms";
-    } else {
-      //document.querySelector(".collapsible-menu").style.transition = "0ms";
-    }
-
-    function changeImage() {
-      const i = Math.floor((Math.random() * 3) + 1);
-
-      document.getElementById("containerHeader").style.backgroundImage = "url('" + backgroundImg[i] + "')";
-      document.getElementById("headerHeading").innerText = headerHeading[i];
-      document.getElementById("headerSubheading").innerText = headerSubheading[i];
-    }
-
-    setInterval(changeImage, 5000);
   }
 
 }

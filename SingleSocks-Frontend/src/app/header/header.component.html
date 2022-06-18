@@ -8,9 +8,18 @@
         </svg>
       </a>
     </li>
-    <li *ngFor="let link of authLinkList.links">
-      <a [routerLink]="'/' + link.link">
-        <span>{{link.name}}</span>
+
+    <ng-container *ngIf="!authService.getLoggedIn()">
+      <li *ngFor="let link of authLinkList.links">
+        <a [routerLink]="'/' + link.link">
+          <span>{{link.name}}</span>
+          <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
+        </a>
+      </li>
+    </ng-container>
+    <li *ngIf="authService.getLoggedIn()">
+      <a [routerLink]="'/home'">
+        <span>Logout</span>
         <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
       </a>
     </li>
@@ -30,9 +39,17 @@
             </svg>
           </a>
         </li>
-        <li *ngFor="let link of authLinkList.links">
-          <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
-            <span>{{link.name}}</span>
+        <ng-container *ngIf="!authService.getLoggedIn()">
+          <li *ngFor="let link of authLinkList.links">
+            <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
+              <span>{{link.name}}</span>
+              <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
+            </a>
+          </li>
+        </ng-container>
+        <li *ngIf="authService.getLoggedIn()">
+          <a [routerLink]="'/home'">
+            <span>Logout</span>
             <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
           </a>
         </li>

@@ -14,12 +14,17 @@ router.post('/login', async (req, res, next) => {
             }
 
             req.login(user, {session: false}, async (error) => {
-                if(error) return next(error);
+                if (error) return next(error);
 
-                const body = { _id: user._id, email: user.email };
+                const body = {_id: user._id, email: user.email};
                 const token = jwt.sign({user: body}, process.env.TOKEN_SECRET);
 
-                return res.json({token});
+                res.cookie("SESSION_TOKEN", token, {
+                    httpOnly: true,
+                    sameSite: "strict",
+                });
+
+                return res.status(200).send();
             })
         } catch (error) {
             return res.status(403).send({'error': 'Invalid email or password.'});

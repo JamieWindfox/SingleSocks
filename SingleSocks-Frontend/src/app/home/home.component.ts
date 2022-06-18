@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
+import {SingleSockLinkList} from "../SingleSockLink";
 import {SockProfile} from "../sock-profile";
 import {SockService} from "../services/sock.service";
 
@@ -11,7 +11,6 @@ import {SockService} from "../services/sock.service";
 export class HomeComponent implements OnInit {
 
   linkList: SingleSockLinkList;
-  authLinkList: AuthLinkList;
 
   featuredSocks: SockProfile[] = []
 
@@ -20,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.linkList = new SingleSockLinkList();
-    this.authLinkList = new AuthLinkList();
 
     // TODO
     this.sockService.query().subscribe(result => {
