@@ -66,7 +66,13 @@ router.post('/register',
         });
 
         user.save().then(user => {
-            if(!user) return res.status(500).send();
+            if (!user) return res.status(500).send();
+            const token = jwt.sign({'user': user}, process.env.TOKEN_SECRET);
+
+            res.cookie("SESSION_TOKEN", token, {
+                httpOnly: true,
+                sameSite: "strict",
+            });
             res.status(200).send(user._id);
         }).catch(err => {
             console.debug(err)

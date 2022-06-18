@@ -30,7 +30,7 @@ export class LoginUserComponent implements OnInit {
       password: this.validation.controls['password'].value,
     };
     this.authService.login(user).subscribe({
-      next: (result) => {
+      next: () => {
         this.authService.setLoggedIn(true);
         this.router.navigate(['/home']);
       },

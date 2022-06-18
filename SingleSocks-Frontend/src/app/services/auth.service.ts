@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {User} from "../user";
+import {RegistrationUser, User} from "../user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
@@ -25,12 +25,17 @@ export class AuthService {
     });
   }
 
+  register(user: RegistrationUser) {
+    return this.httpClient.post(this.url + "/register", user, {observe: "response"});
+  }
+
   setLoggedIn(loggedIn: boolean) {
     this.loggedIn = loggedIn;
   }
 
   getLoggedIn(): boolean {
     // That's a security issue lol TODO
+    // Missing check whether JWT Cookie token is still valid to check if user is logged in or not
     return this.loggedIn;
   }
 }

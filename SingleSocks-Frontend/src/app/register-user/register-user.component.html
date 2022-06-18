@@ -3,19 +3,19 @@
 </section>
 <main>
   <br>
-  <form action="angularized_pages/app.userProfile.html">
+  <form (ngSubmit)="register()" [formGroup]="validation">
     <section>
       <p>
         <label for="userNameInput"><b>User Name</b> (visible to others): </label>
-        <input type="text" id="userNameInput" name="userName">
+        <input type="text" id="userNameInput" name="userName" formControlName="displayName">
       </p>
       <p>
         <label for="userEmailInput"><b>E-Mail address</b> (not visible to others): </label>
-        <input type="text" id="userEmailInput" name="userEmail">
+        <input type="text" id="userEmailInput" name="userEmail" formControlName="email">
       </p>
       <p>
         <label id="userPassword-lbl" for="userPasswordInput"><b>Choose a password</b> (not visible to others): </label>
-        <input type="password" id="userPasswordInput" name="userPassword">
+        <input type="password" id="userPasswordInput" name="userPassword" formControlName="password">
       <p id="passwordSecurityTipp-lbl">❗Your password must be between 8 and 20 signs long, include capital and lower letters, numbers and contain the following special characters: !$%&/()=?*❗</p>
     </section>
 
@@ -27,7 +27,7 @@
     </section>
 
     <div class="buttonFlex">
-      <button id="submitButton" class="submitButton" title="Sign In" type="submit" value="send">Register</button>
+      <button id="submitButton" class="submitButton" title="Sign In" type="submit">Register</button>
       <!--<button id="resetButton" class="resetButton" title="reset" type="reset">Reset</button>-->
     </div>
     <br>
