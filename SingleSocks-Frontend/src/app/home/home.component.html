@@ -12,18 +12,14 @@
 
   <!-- section for highlighted socks -->
   <section class="featuredSocks">
-    <article *ngFor="let sock of socks">
+    <article *ngFor="let sock of featuredSocks">
       <img src="assets/{{sock.picture}}">
       <ul>
         <li><p><strong>{{sock.name}}</strong></p></li>
-        <li><p>Searching for: {{sock.searchingFor}}</p></li>
         <li><p>Size: {{sock.size}}</p></li>
         <li><p>Condition: {{sock.condition}}</p></li>
         <li>
-          <button title="go to shop" *ngIf="!sock.searchingFor.includes('match')"><a [routerLink]="['/sock', sock.id]">&#9989;
-            I want them!</a></button>
-          <button title="go to shop" *ngIf="sock.searchingFor.includes('match')"><a [routerLink]="['/sock', sock.id]">&#10024;Thats
-            my match!</a></button>
+          <button title="go to shop"><a [routerLink]="['/sock', sock._id]">&#10024;Thats my match!</a></button>
         </li>
       </ul>
     </article>

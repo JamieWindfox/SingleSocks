@@ -1,12 +1,20 @@
+import {Material} from "./Material";
+import {SockPattern} from "./SockPattern";
+import {SockSize} from "./SockSize";
+import {Color} from "./Color";
+
 export interface SockProfile {
-  id: number;
+  _id: number;
   name: string;
-  searchingFor: string;
-  size: number;
+  size: SockSize;
+  mainColor: Color;
+  material: Material;
+  pattern: SockPattern
+
   condition: string;
-  manufacturer: string;
   description: string;
-  price: number;
-  deliveryPrime: number;
-  picture: string;
+  availability: boolean;
+
+  picture: string; // imageName
+
 }

@@ -1,11 +1,17 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Container} from "../Container";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContainerService {
+  private url = "api/containers"
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
-  // TODO
+
+  query() {
+    return this.httpClient.get<Container[]>(this.url, {observe: "response"});
+  }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NGO} from "../NGO";
 import * as L from 'leaflet';
 import {LatLngExpression} from 'leaflet';
+import {ContainerService} from "../services/container.service";
 
 @Component({
   selector: 'app-donate',
@@ -13,13 +14,14 @@ export class DonateComponent implements OnInit {
 
   boxes = [[48.23, 16.36], [48.20, 16.5], [48.25, 16.45], [48.20, 16.35], [48.20, 16.4], [48.20, 16.3], [48.22, 16.31], [48.20, 16.325], [48.23, 16.3], [48.17, 16.36]]
 
-  constructor() {
+  constructor(private containerService: ContainerService) {
   }
 
   ngOnInit(): void {
     this.ngoList = Object.values(NGO).filter((item) => {
       return isNaN(Number(item));
     });
+
     var map = L.map('map').setView([48.20, 16.4], 12);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -27,10 +29,16 @@ export class DonateComponent implements OnInit {
       attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    for (let coords of this.boxes) {
-      L.marker(coords as LatLngExpression).addTo(map).bindPopup("Teststraße 22, 10XX Vienna <br> 09:00-23:00",{ closeButton: false })
-      closeButton: false;
-    }
+    this.containerService.query().subscribe(result => {
+      // TODO add container location to DB
+      for (let container of result.body) {
+        L.marker([container.location.lat, container.location.lng] as LatLngExpression).addTo(map).bindPopup("Teststraße 22, 10XX Vienna <br> 09:00-23:00 <br> By " + container.maintainer, {closeButton: false});
+      }
+
+      for (let mockData of this.boxes) {
+        L.marker(mockData as LatLngExpression).addTo(map).bindPopup("Teststraße 22, 10XX Vienna <br> 09:00-23:00 <br> By MockData", {closeButton: false});
+      }
+    });
   }
 
 }
