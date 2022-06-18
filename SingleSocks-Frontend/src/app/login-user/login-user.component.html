@@ -4,18 +4,26 @@
 <br>
 <main>
   <div class="styleForm">
-    <form action="index.html" id="loginForm" class="loginForm">
-      <input id="usernameInput" type="text" placeholder="enter your e-Mail oder username" required/>
+    <form id="loginForm" class="loginForm" (ngSubmit)="login()" [formGroup]="validation">
+      <input id="usernameInput" type="text" placeholder="enter your e-Mail oder username" required
+             formControlName="username"/>
       <br>
-      <input id="passwordInput" type="password" placeholder="enter your password" required/>
+      <input id="passwordInput" type="password" placeholder="enter your password" required formControlName="password"/>
       <br>
 
       <div class="buttonFlex">
-        <button id="submitButton" class="submitButton" title="Sign In" type="submit" value="send">Login</button>
-        <!--<button id="resetButton" class="resetButton" title="reset" type="reset">Reset</button>-->
+        <button id="submitButton" class="submitButton" title="Sign In" type="submit">Login</button>
       </div>
       <br>
 
+      <!-- TODO -->
+      <!--
+      *clrIfError="'incorrect'">
+          Username or Password incorrect!
+          -->
+      <div *ngIf="validation.errors?.['incorrect']">
+        Username or password wrong.
+      </div>
       <!-- TODO -->
       <p>Forgot password?<a title="Forgot password" href="">Reset password</a></p>
       <br>
