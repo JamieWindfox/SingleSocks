@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
+import {AuthLinkList, SingleSockLinkList, SingleSockLoggedInLinkList} from "../SingleSockLink";
 import {AuthService} from "../services/auth.service";
 
 
@@ -46,6 +46,7 @@ const headerSubheading =
 export class HeaderComponent implements OnInit {
 
   linkList = new SingleSockLinkList();
+  linkLoggedInlist = new SingleSockLoggedInLinkList();
   authLinkList = new AuthLinkList();
   isMenuVisible = true;
 

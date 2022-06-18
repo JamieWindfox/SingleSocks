@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: RoutePath.FIND, component: FindSocksComponent},
   {path: RoutePath.DONATE, component: DonateComponent},
   {path: RoutePath.DIY, component: DiyCornerComponent},
-  {path: 'create', component: CreateSocksComponent}, // TODO
+  {path: RoutePath.CREATE, component: CreateSocksComponent}, // TODO
   {path: RoutePath.LOGIN, component: LoginUserComponent},
   {path: RoutePath.REGISTER, component: RegisterUserComponent},
   {path: 'sock/:id', component: SockProfileComponent}, // TODO

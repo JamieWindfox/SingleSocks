@@ -72,6 +72,18 @@
           </select>
         </td>
       </tr>
+
+      <tr>
+        <td>
+          <label for="condition">Condition: </label>
+        </td>
+        <td>
+          <select id="condition" name="material">
+            <!-- TODO enum-ify conditions -->
+            <option *ngFor="let material of materials" value={{material}}>{{material}}</option>
+          </select>
+        </td>
+      </tr>
     </table>
     <br>
 

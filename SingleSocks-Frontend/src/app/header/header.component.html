@@ -17,12 +17,22 @@
         </a>
       </li>
     </ng-container>
-    <li *ngIf="authService.getLoggedIn()">
-      <a [routerLink]="'/home'">
-        <span>Logout</span>
-        <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
-      </a>
-    </li>
+    <ng-container *ngIf="authService.getLoggedIn()">
+      <li *ngFor="let link of linkLoggedInlist.links">
+        <a [routerLink]="'/' + link.link">
+          <span>{{link.name}}</span>
+          <svg class="svg-icon" viewBox="0 0 20 20">
+            <path [attr.d]="link.icon"></path>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="'/home'">
+          <span>Logout</span>
+          <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
+        </a>
+      </li>
+    </ng-container>
   </ul>
 </nav>
 
@@ -47,12 +57,22 @@
             </a>
           </li>
         </ng-container>
-        <li *ngIf="authService.getLoggedIn()">
-          <a [routerLink]="'/home'">
-            <span>Logout</span>
-            <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
-          </a>
-        </li>
+        <ng-container *ngIf="authService.getLoggedIn()">
+          <li *ngFor="let link of linkLoggedInlist.links">
+            <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
+              <span>{{link.name}}</span>
+              <svg class="svg-icon" viewBox="0 0 20 20">
+                <path [attr.d]="link.icon"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="'/home'">
+              <span>Logout</span>
+              <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
+            </a>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>
