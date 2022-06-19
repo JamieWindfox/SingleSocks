@@ -71,7 +71,7 @@ router.post('/',
             console.log(err);
         });
 
-        res.send(sock)
+        res.json(sock)
     }
 );
 
@@ -104,7 +104,7 @@ router.delete('/:id',
             res.status(500).send(err)
         })
     }
-)
+);
 
 router.put('/:id',
     param('id').isMongoId(),
@@ -114,7 +114,7 @@ router.put('/:id',
     body('size').isIn(Attribute.sizes),
     body('type').isIn(Attribute.types),
     body('condition').isIn(Attribute.conditions),
-    body('description').isAlphanumeric().isLength({max: 255}),
+    body('description').isLength({max: 255}),
     body('availability').isBoolean(),
     passport.authenticate('jwt', { session: false }),
     async (req, res, next) => {
@@ -123,8 +123,7 @@ router.put('/:id',
             return res.status(400).json({ errors: errors.array() })
         }
 
-        Sock.findById(req.params.id)
-        .then(sock => {
+        Sock.findById(req.params.id).then(sock => {
             if(!sock) return res.status(404).send('Sock not found')
 
             if(!req.user.isAdmin && sock.user != req.user._id) {
@@ -142,19 +141,16 @@ router.put('/:id',
             sock.availability = req.body.availability
             sock.description = req.body.description
 
-            sock.save()
-            .then(sock => {
+            sock.save().then(sock => {
                 if(!sock) return res.status(500).send()
                 res.status(200).send(sock)
-            })
-            .catch(err => {
+            }).catch(err => {
                 res.status(500).send()
             })
-        })
-        .catch(err => {
+        }).catch(err => {
             res.status(500).send()
         })
     }
-)
+);
 
 module.exports = router;
