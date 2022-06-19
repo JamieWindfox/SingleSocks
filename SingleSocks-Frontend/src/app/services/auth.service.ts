@@ -29,6 +29,10 @@ export class AuthService {
     return this.httpClient.post(this.url + "/register", user, {observe: "response"});
   }
 
+  auth() {
+    return this.httpClient.get<any>(this.url + "/validate", {observe: "response", withCredentials: true});
+  }
+
   setLoggedIn(loggedIn: boolean) {
     this.loggedIn = loggedIn;
   }
