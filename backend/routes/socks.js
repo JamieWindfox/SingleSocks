@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('/', async function(req, res, next) {
     const socks = await Sock.find()
-    res.send(socks);
+    res.json(socks);
 });
 
 router.get('/:id',
@@ -33,13 +33,14 @@ router.get('/:id',
 );
 
 router.post('/',
+    body('name').notEmpty().isLength({max: 50}),
     body('material').isIn(Attribute.materials),
     body('mainColor').isIn(Attribute.mainColors),
     body('pattern').isIn(Attribute.patterns),
     body('size').isIn(Attribute.sizes),
     body('type').isIn(Attribute.types),
     body('condition').isIn(Attribute.conditions),
-    body('description').isLength({max: 255}),
+    body('description').notEmpty().isLength({max: 255}),
     body('imageData').notEmpty().custom(v => require('../etc/validators').isBase64Image(v)),
     passport.authenticate('jwt', { session: false }),
     async (req, res, next) => {
@@ -52,6 +53,7 @@ router.post('/',
         if(!user) return res.status(404).send({'message': 'User not found'});
 
         var sock = new Sock({
+            name: req.body.name,
             mainColor: req.body.mainColor,
             material: req.body.material,
             pattern: req.body.pattern,
@@ -107,6 +109,7 @@ router.delete('/:id',
 );
 
 router.put('/:id',
+    body('name').notEmpty().isLength({max: 50}),
     param('id').isMongoId(),
     body('material').isIn(Attribute.materials),
     body('mainColor').isIn(Attribute.mainColors),
@@ -114,7 +117,7 @@ router.put('/:id',
     body('size').isIn(Attribute.sizes),
     body('type').isIn(Attribute.types),
     body('condition').isIn(Attribute.conditions),
-    body('description').isLength({max: 255}),
+    body('description').notEmpty().isLength({max: 255}),
     body('availability').isBoolean(),
     passport.authenticate('jwt', { session: false }),
     async (req, res, next) => {
@@ -132,6 +135,7 @@ router.put('/:id',
                 return res.status(401).send('Unauthorized');
             }
             
+            sock.name = req.body.name
             sock.mainColor = req.body.mainColor
             sock.material = req.body.material
             sock.pattern = req.body.pattern

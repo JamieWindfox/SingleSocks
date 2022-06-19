@@ -2,6 +2,10 @@ const mongoose = require('mongoose'), Schema = mongoose.Schema;
 const Attribute = require('./Attribute');
 
 var SockSchema = new Schema({
+    name: {
+        type: String,
+        maxlength: 50
+    },
     mainColor: {
         type: String,
         enum: Object.keys(Attribute.mainColors)
