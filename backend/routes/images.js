@@ -10,11 +10,12 @@ router.get('/:id',
     param('id').isMongoId(),
     async function(req, res, next) {
         Sock.findById(req.params.id).then(sock => {
-            // No sock found
-            if (!sock) return res.status(404).sendFile(path.join(__dirname, '../etc/404_sock.png'));
-
             const basePath = path.join(__dirname, `../images/${req.params.id}`);
             const defaultPath = `${basePath}.png`;
+
+            // No sock found
+            if (!sock || !fs.existsSync(defaultPath)) return res.status(404).sendFile(path.join(__dirname, '../etc/404_sock.png'));
+
             // Sock found and available
             if(sock.availability) return res.sendFile(defaultPath);
             
