@@ -13,7 +13,7 @@ router.get('/:id',
             // No sock found
             if (!sock) return res.status(404).sendFile(path.join(__dirname, '../etc/404_sock.png'));
 
-            const basePath = path.join(__dirname, `../images/${req.params.id}`);
+            const basePath = path.join(__dirname, `../../Pictures/${sock.name.replace(" ", "")}`);
             const defaultPath = `${basePath}.png`;
             // Sock found and available
             if(sock.availability) return res.sendFile(defaultPath);
