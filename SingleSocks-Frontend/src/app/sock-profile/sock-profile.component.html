@@ -57,30 +57,23 @@
   </div>
 
   <div class="technicalInfoContainer" *ngIf="technicalDescription">
-
-    <table>
-      <tr>
-        <th>Size:</th>
-        <td>{{sock.size}}</td>
-      </tr>
-      <tr>
-        <th>Color:</th>
-        <td>{{sock.mainColor}}</td>
-      </tr>
-      <tr>
-        <th>Material:</th>
-        <td>{{sock.material}}</td>
-      </tr>
-      <tr>
-        <th>Pattern:</th>
-        <td>{{sock.pattern}}</td>
-      </tr>
-      <tr>
-        <th>Condition:</th>
-        <td>{{sock.condition}}</td>
-      </tr>
-    </table>
-
+    <form [formGroup]="validation">
+      <table>
+        <tr *ngFor="let item of attributes | keyvalue">
+          <th>{{item.key}}:</th>
+          <td *ngIf="editingAttribute==item.key">
+            <select id="{{item.key}}" name="{{item.key}}" formControlName="{{item.key}}">
+              <option *ngFor="let attributeValue of item.value | keyvalue"
+                      [value]="attributeValue.key">{{attributeValue.value}}</option>
+            </select>
+            <i class="fas fa-check-circle" (click)="save()"></i>
+            <i class="fas fa-ban" (click)="cancel()"></i>
+          </td>
+          <td *ngIf="editingAttribute!=item.key">{{getPropertyValue(item.key)}}<i class="fas fa-pen"
+                                                                                  (click)="onEdit(item.key)"></i></td>
+        </tr>
+      </table>
+    </form>
   </div>
 
   <div class="productDescriptionContainer" *ngIf="!technicalDescription">

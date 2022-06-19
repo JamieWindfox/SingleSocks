@@ -32,4 +32,11 @@ export class SockService {
   create(sock: SockProfile) {
     return this.httpClient.post<SockProfile>(this.url, sock, {observe: "response", withCredentials: true});
   }
+
+  update(sock: SockProfile) {
+    return this.httpClient.put<SockProfile>(this.url + "/" + sock._id, sock, {
+      observe: "response",
+      withCredentials: true
+    });
+  }
 }
