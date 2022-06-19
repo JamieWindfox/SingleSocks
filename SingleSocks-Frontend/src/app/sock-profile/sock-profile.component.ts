@@ -5,6 +5,7 @@ import {SockService} from "../services/sock.service";
 import {AttributeService} from "../services/attribute.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {environment} from "../../environments/environment";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-sock-profile',
@@ -17,34 +18,26 @@ export class SockProfileComponent implements OnInit {
 
   sock: SockProfile;
 
-  // TODO get if user is admin or is user's own sock
-  // TODO css for editing
   isUsersSock = false;
 
   attributes = new Map<string, any>();
   editingAttribute = "";
   validation: FormGroup;
 
-  constructor(private route: ActivatedRoute, private sockService: SockService, private attributeService: AttributeService) {
+  constructor(private route: ActivatedRoute, private sockService: SockService, private attributeService: AttributeService, private authService: AuthService) {
   }
 
   ngOnInit(): void {
-    // TODO get sock by Id
     const sockId = this.route.snapshot.paramMap.get('id');
 
     this.sockService.queryById(sockId).subscribe(result => {
       this.sock = result.body;
       this.sock.picture = environment.serverUrl + 'api/images/' + this.sock._id;
       this.initValidation();
+      this.isUsersSock = this.sock.user == this.authService.getUserId();
+      this.initEditable();
     })
 
-    this.attributeService.getAttributes().subscribe((result) => {
-      let attributes = Object.keys(result.body).filter(value => value != "maintainer");
-      for (let attribute of attributes) {
-        // @ts-ignore TODO
-        this.attributes.set(attribute, result.body[attribute]);
-      }
-    });
   }
 
   initValidation() {
@@ -79,6 +72,7 @@ export class SockProfileComponent implements OnInit {
 
     this.sockService.update(this.sock).subscribe((result) => {
       this.sock = result.body;
+      this.sock.picture = environment.serverUrl + 'api/images/' + this.sock._id;
       this.cancel();
     });
   }
@@ -86,5 +80,15 @@ export class SockProfileComponent implements OnInit {
   cancel() {
     this.editingAttribute = '';
     this.initValidation();
+  }
+
+  initEditable() {
+    this.attributeService.getAttributes().subscribe((result) => {
+      let attributes = Object.keys(result.body).filter(value => value != "maintainer");
+      for (let attribute of attributes) {
+        // @ts-ignore TODO
+        this.attributes.set(attribute, result.body[attribute]);
+      }
+    });
   }
 }

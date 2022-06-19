@@ -17,7 +17,6 @@
       <br>
       <br>
       <br>
-      <!-- TODO - is name necessary? -->
     </div>
 
 
@@ -69,7 +68,7 @@
             <i class="fas fa-check-circle" (click)="save()"></i>
             <i class="fas fa-ban" (click)="cancel()"></i>
           </td>
-          <td *ngIf="editingAttribute!=item.key">{{getPropertyValue(item.key)}}<i class="fas fa-pen"
+          <td *ngIf="editingAttribute!=item.key">{{getPropertyValue(item.key)}}<i class="fas fa-pen" *ngIf="isUsersSock"
                                                                                   (click)="onEdit(item.key)"></i></td>
         </tr>
       </table>
