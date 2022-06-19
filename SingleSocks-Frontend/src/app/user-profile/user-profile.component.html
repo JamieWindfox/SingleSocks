@@ -21,4 +21,38 @@
     </tr>
   </table>
 
+  <section class = "profileButtons">
+    <ul>
+      <li [ngClass]="{'descriptionActive': userInformation}">
+        <input type="radio" id="techInf" name="infoButtons" (click)="userInformation = true" autocomplete="off">
+        <label for="techInf" id="technicalInformationLabel">User Information</label>
+
+      </li>
+      <li [ngClass]="{'descriptionActive': !userInformation}">
+        <input type="radio" id="prodDesc" name="infoButtons" (click)="userInformation = false" autocomplete="off">
+        <label for="prodDesc" id="productDescriptionLabel">List of Socks</label>
+      </li>
+    </ul>
+  </section>
+
+  <div class="userDescription" *ngIf="userInformation">
+    <label for="description">Short description: </label>
+    <br>
+    <textarea id="description" name="description" cols="70" rows="8" formControlName="description"></textarea>
+
+  </div>
+  <section class="featuredSocks" *ngIf="!userInformation">
+    <article *ngFor="let sock of userSocks">
+      <img [src]="sock.picture">
+      <ul>
+        <li><p><strong>{{sock.name}}</strong></p></li>
+        <li><p>Size: {{sock.size}}</p></li>
+        <li><p>Condition: {{sock.condition}}</p></li>
+        <li>
+          <button title="go to shop"><a [routerLink]="['/sock', sock._id]">❌Delete this Sock❌</a></button>
+        </li>
+      </ul>
+    </article>
+  </section>
+
 </main>

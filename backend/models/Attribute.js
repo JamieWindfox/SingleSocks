@@ -55,7 +55,7 @@ Attribute.sizes = {
 
 Attribute.types = {
     'toe-cover': 'toe-cover / mute',
-    'invisible': 'invisivle / no-show',
+    'invisible': 'invisible / no-show',
     'liner': 'liner / extra low cut',
     'ped': 'ped / low cut',
     'quarter': 'quarter / anklets',

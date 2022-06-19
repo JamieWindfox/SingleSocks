@@ -12,4 +12,163 @@ main {
     }
 
   }
+
+  .listOfSocks, .productDescriptionContainer {
+
+    display: block;
+    padding: 10px;
+    margin: 0 30px 30px 30px;
+
+
+    table {
+      width: 100%;
+      text-align: left;
+      border-collapse: collapse;
+      font-size: 20px;
+
+      tr {
+        th {
+          padding: 20px;
+          width: 30%;
+
+        }
+
+        td {
+          padding: 20px;
+          text-align: left;
+
+        }
+      }
+    }
+  }
+
+  .profileButtons {
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    ul {
+      display: flex;
+      width: fit-content;
+
+      margin: 10px 30px;
+      font-size: 22px;
+
+      :first-child {
+        margin-right: 5px;
+        margin-left: 0;
+      }
+
+      li {
+        display: flex;
+
+        margin-left: 5px;
+
+      }
+
+      label {
+        cursor: pointer;
+        text-align: center;
+
+        border-radius: 10px;
+        transition: background-color .3s;
+        max-width: 250px;
+        background-color: #eeeeee;
+        padding: 25px;
+      }
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  .featuredSocks {
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    display: flex;
+    overflow-y: hidden;
+    padding: 6rem 4rem;
+    column-gap: 4rem;
+
+    &:first-child {
+      padding-left: 4rem;
+    }
+
+    &:last-child {
+      padding-right: 4rem;
+    }
+
+    background-color: white;
+    @include shadow(inside);
+
+
+    article {
+      display: inline-block;
+      flex-direction: row;
+      min-width: 250px;
+      min-height: 300px;
+      max-width: 250px;
+      max-height: 300px;
+
+      background-color: #eee;
+      border-radius: 1.75rem;
+
+      @include shadow(inside);
+
+      justify-items: flex-start;
+
+      img {
+        position: relative;
+        left: 75%;
+        top: -10%;
+        max-height: 40%;
+      }
+
+      ul {
+        position: relative;
+        top: -140px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        width: 100%;
+        height: 100%;
+        padding: 1rem 0;
+        margin: 1rem 0;
+        text-align: center;
+        list-style: none;
+
+        li {
+          display: block;
+
+          button {
+            padding: 1rem;
+            border-style: none;
+            background-color: #97c9de;
+            border-radius: 1.75rem;
+            transition-duration: 500ms;
+
+            a {
+              text-decoration: none;
+            }
+
+            &:active, &:hover {
+              background-color: $secondaryColor;
+              border-radius: 1.75rem;
+
+              color: white;
+              @include shadow(outside);
+
+              padding: 1rem 3rem;
+              transition-duration: 500ms;
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
