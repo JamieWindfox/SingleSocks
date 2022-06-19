@@ -7,13 +7,10 @@
     <p>	🧦    Select one of the following NGO's to see on the Map    🧦 </p>
         <li *ngFor="let ngo of ngoList" value="{{ngo}}" style="list-style-type: none">
           <label for="{{ngo}}_checkbox">{{ngo}}</label>
-          <input size="25" type="checkbox" id="{{ngo}}_checkbox">
-          <div class = "clear"></div>
+          <input size="25" type="checkbox" id="{{ngo}}_checkbox" (change)="toggleNGO(ngo)">
         </li>
   </section>
   <br>
-  <br>
   <div id="map" class="Map"></div>
-  <br>
   <br>
 </main>
