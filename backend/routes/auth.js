@@ -10,14 +10,20 @@ router.post('/login', async (req, res, next) => {
     passport.authenticate('login', async (err, user, info) => {
         try {
             if(err || !user) {
+                console.log(err);
                 return res.status(403).send({'error': 'Invalid email or password.'});
             }
 
             req.login(user, {session: false}, async (error) => {
                 if (error) return next(error);
 
-                const body = {_id: user._id, email: user.email};
-                const token = jwt.sign({user: body}, process.env.TOKEN_SECRET);
+                const token = jwt.sign({
+                    user: {
+                        _id: user._id,
+                        email: user.email
+                    },
+                    exp: Math.floor(Date.now() / 1000) + Number(process.env.TOKEN_LIFESPAN)
+                }, process.env.TOKEN_SECRET);
 
                 res.cookie("SESSION_TOKEN", token, {
                     httpOnly: true,
@@ -27,7 +33,8 @@ router.post('/login', async (req, res, next) => {
                 return res.status(200).send();
             })
         } catch (error) {
-            return res.status(403).send({'error': 'Invalid email or password.'});
+            console.log(error);
+            return res.status(500).send({'error': 'Error occured on server.'});
         }
     })(req, res, next);
 });
@@ -80,5 +87,9 @@ router.post('/register',
         })
     }
 );
+
+router.get('/checkToken', (req, res, next) => {
+
+});
 
 module.exports = router;
