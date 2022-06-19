@@ -3,9 +3,7 @@
     <li *ngFor="let link of linkList.links">
       <a [routerLink]="'/' + link.link">
         <span>{{link.name}}</span>
-        <svg class="svg-icon" viewBox="0 0 20 20">
-          <path [attr.d]="link.icon"></path>
-        </svg>
+        <i [class]="'fa ' + link.icon"></i>
       </a>
     </li>
 
@@ -13,7 +11,7 @@
       <li *ngFor="let link of authLinkList.links">
         <a [routerLink]="'/' + link.link">
           <span>{{link.name}}</span>
-          <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
+          <i [class]="'fa ' + link.icon"></i>
         </a>
       </li>
     </ng-container>
@@ -21,9 +19,7 @@
       <li *ngFor="let link of linkLoggedInlist.links">
         <a [routerLink]="'/' + link.link">
           <span>{{link.name}}</span>
-          <svg class="svg-icon" viewBox="0 0 20 20">
-            <path [attr.d]="link.icon"></path>
-          </svg>
+          <i [class]="'fa ' + link.icon"></i>
         </a>
       </li>
       <li (click)="logout()">
@@ -44,9 +40,7 @@
         <li *ngFor="let link of linkList.links">
           <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
             <span>{{link.name}}</span>
-            <svg class="svg-icon" viewBox="0 0 20 20">
-              <path [attr.d]="link.icon"></path>
-            </svg>
+            <i [class]="'fa ' + link.icon"></i>
           </a>
         </li>
         <ng-container *ngIf="!authService.isUserLoggedIn()">
@@ -61,9 +55,7 @@
           <li *ngFor="let link of linkLoggedInlist.links">
             <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
               <span>{{link.name}}</span>
-              <svg class="svg-icon" viewBox="0 0 20 20">
-                <path [attr.d]="link.icon"></path>
-              </svg>
+              <i [class]="'fa ' + link.icon"></i>
             </a>
           </li>
           <li (click)="logout()">
