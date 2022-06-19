@@ -5,6 +5,7 @@ const { param, body, validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 const Attribute = require('../models/Attribute')
 const passport = require('passport');
+const fs = require('fs');
 const router = express.Router();
 
 router.get('/', async function(req, res, next) {
@@ -37,6 +38,9 @@ router.post('/',
     body('pattern').isIn(Attribute.patterns),
     body('size').isIn(Attribute.sizes),
     body('type').isIn(Attribute.types),
+    body('condition').isIn(Attribute.conditions),
+    body('description').isLength({max: 255}),
+    body('imageData').notEmpty().custom(v => require('../etc/validators').isBase64Image(v)),
     passport.authenticate('jwt', { session: false }),
     async (req, res, next) => {
         const errors = validationResult(req);
@@ -48,16 +52,25 @@ router.post('/',
         if(!user) return res.status(404).send({'message': 'User not found'});
 
         var sock = new Sock({
-            imageName: "NAY",
             mainColor: req.body.mainColor,
             material: req.body.material,
             pattern: req.body.pattern,
             size: req.body.size,
             type: req.body.type,
+            condition: req.body.condition,
+            availability: true,
+            description: req.body.description,
             user: user._id
         })
         sock = await sock.save()
         if(!sock) return res.status(500).send()
+
+        var base64Data = req.body.imageData.replace(/^data:image\/png;base64,/, "");
+        const filename = `${process.env.UPLOAD_PATH}${sock._id}.png`;
+        fs.writeFile(filename, base64Data, 'base64', function(err) {
+            console.log(err);
+        });
+
         res.send(sock)
     }
 );
@@ -100,6 +113,9 @@ router.put('/:id',
     body('pattern').isIn(Attribute.patterns),
     body('size').isIn(Attribute.sizes),
     body('type').isIn(Attribute.types),
+    body('condition').isIn(Attribute.conditions),
+    body('description').isAlphanumeric().isLength({max: 255}),
+    body('availability').isBoolean(),
     passport.authenticate('jwt', { session: false }),
     async (req, res, next) => {
         const errors = validationResult(req);
@@ -122,6 +138,9 @@ router.put('/:id',
             sock.pattern = req.body.pattern
             sock.size = req.body.size
             sock.type = req.body.type
+            sock.condition = req.body.condition
+            sock.availability = req.body.availability
+            sock.description = req.body.description
 
             sock.save()
             .then(sock => {

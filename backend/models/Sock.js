@@ -2,7 +2,6 @@ const mongoose = require('mongoose'), Schema = mongoose.Schema;
 const Attribute = require('./Attribute');
 
 var SockSchema = new Schema({
-    imageName: String,
     mainColor: {
         type: String,
         enum: Object.keys(Attribute.mainColors)
@@ -23,6 +22,15 @@ var SockSchema = new Schema({
         type: String,
         enum: Object.keys(Attribute.types)
     },
+    condition: {
+        type: String,
+        enum: Object.keys(Attribute.conditions)
+    },
+    description: {
+        type: String,
+        maxlength: 255
+    },
+    availability: Boolean,
     user: { type: mongoose.ObjectId, ref: 'User' },
     visitCounter: {
         type: Number,

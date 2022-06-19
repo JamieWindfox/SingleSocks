@@ -1,4 +1,5 @@
 .idea/
 node_modules/
 *.pem
-*.env
+**/sec/*.env
+backend/images

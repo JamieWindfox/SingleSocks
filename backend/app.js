@@ -6,9 +6,11 @@ const cookieParser = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const cors = require('cors')
+const cors = require('cors');
+const fs = require('fs');
 require('dotenv').config({path: 'sec/secrets.env'}); // Puts variables in process.env
-require('./auth/auth');
+require('dotenv').config({path: 'environment.env'});
+require('./etc/auth');
 
 var app = express();
 
@@ -28,9 +30,13 @@ mongoose.connection.on('connected', (err, res) => {
   console.log('mongoose is connected')
 });
 
+app.set('uploadPath', 'images');
+if(!fs.existsSync(app.settings.uploadPath))
+  fs.mkdirSync(app.settings.uploadPath);
+
 app.use(cors())
 app.use(logger('dev'));
-app.use(express.json());
+app.use(express.json({limit: '5mb'}));
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 //app.use(lessMiddleware(path.join(__dirname, 'public')));
@@ -43,6 +49,7 @@ router.use('/socks', require('./routes/socks'));
 router.use('/containers', require('./routes/containers'));
 router.use('/auth', require('./routes/auth'));
 router.use('/attributes', require('./routes/attributes'));
+router.use('/images', require('./routes/images'));
 
 app.use("/api", router);
 

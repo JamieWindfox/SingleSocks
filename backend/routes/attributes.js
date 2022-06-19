@@ -26,4 +26,8 @@ router.get('/maintainer', (req, res, next) => {
     res.send(Attribute.maintainers)
 });
 
+router.get('/condition', (req, res, next) => {
+    res.send(Attribute.conditions)
+});
+
 module.exports = router;

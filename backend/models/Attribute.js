@@ -71,4 +71,11 @@ Attribute.maintainers = {
     'rotes-kreuz': 'Rotes Kreuz'
 }
 
+Attribute.conditions = {
+    'new': 'New',
+    'used': 'Used',
+    'heavily-worn': 'Heavily worn',
+    'pieces': 'Ripped in pieces'
+}
+
 module.exports = Attribute
