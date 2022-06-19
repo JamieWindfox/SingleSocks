@@ -1,47 +1,36 @@
-<main>
+<main *ngIf="userInfo">
   <section class="CreateHeader">
     <h1>User Profile</h1>
 
   </section>
-  <h2>Welcome back, username!</h2>
+  <h2>Welcome back, {{userInfo.displayName}}!</h2>
   <table>
     <tr>
-      <td><b>Location: </b></td>
       <td>
-        location
-        <a href="#showLocation"> [show location on map]</a>
+        <b>E-mail:</b>
+      </td>
+      <td>
+        {{userInfo.email}}
       </td>
     </tr>
-    <tr><td><br></td><td></td></tr>
     <tr>
-      <td><b>Socks: </b></td>
+      <td><b>Amount of SingleSocks: </b></td>
       <td>
-        list of socks
+        {{userSocks.length}}
       </td>
     </tr>
   </table>
 
-  <section class = "profileButtons">
+  <section class="profileButtons">
     <ul>
-      <li [ngClass]="{'descriptionActive': userInformation}">
-        <input type="radio" id="techInf" name="infoButtons" (click)="userInformation = true" autocomplete="off">
-        <label for="techInf" id="technicalInformationLabel">User Information</label>
-
-      </li>
-      <li [ngClass]="{'descriptionActive': !userInformation}">
-        <input type="radio" id="prodDesc" name="infoButtons" (click)="userInformation = false" autocomplete="off">
+      <li class="descriptionActive">
+        <input type="radio" id="prodDesc" name="infoButtons">
         <label for="prodDesc" id="productDescriptionLabel">List of Socks</label>
       </li>
     </ul>
   </section>
 
-  <div class="userDescription" *ngIf="userInformation">
-    <label for="description">Short description: </label>
-    <br>
-    <textarea id="description" name="description" cols="70" rows="8" formControlName="description"></textarea>
-
-  </div>
-  <section class="featuredSocks" *ngIf="!userInformation">
+  <section class="featuredSocks">
     <article *ngFor="let sock of userSocks">
       <img [src]="sock.picture">
       <ul>
@@ -49,7 +38,10 @@
         <li><p>Size: {{sock.size}}</p></li>
         <li><p>Condition: {{sock.condition}}</p></li>
         <li>
-          <button title="go to shop"><a [routerLink]="['/sock', sock._id]">❌Delete this Sock❌</a></button>
+          <button><a [routerLink]="['/sock', sock._id]">Edit this Sock</a></button>
+        </li>
+        <li>
+          <button (click)="delete(sock._id)"><a>❌Delete this Sock❌</a></button>
         </li>
       </ul>
     </article>

@@ -29,4 +29,8 @@ export class SockService {
       withCredentials: true
     });
   }
+
+  delete(id: string) {
+    return this.httpClient.delete(this.url + `/${id}`, {observe: "response"});
+  }
 }

@@ -12,3 +12,12 @@ export interface RegistrationUser {
   };
   password: string;
 }
+
+export interface UserInfo {
+  displayName: string;
+  email: string;
+  location: {
+    lat: number;
+    lng: number;
+  }
+}
