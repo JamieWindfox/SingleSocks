@@ -1,0 +1,115 @@
+@import "src/styles.scss";
+
+main {
+
+  @media screen {
+    .CreateTitle, .CreateUpload, .CreateDescription {
+      width: 50%;
+      margin-right: 20px;
+    }
+
+    table
+    {
+      width: 100%
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+
+    .CreateTitle, .CreateUpload, .CreateDescription{
+      width: 100%;
+      margin: 0;
+    }
+    table {
+      display: flex;
+
+    }
+  }
+
+  .CreateHeader {
+    justify-content: left;
+    h1 {
+      background-color: $secondaryColor;
+      color: white;
+      font-size: xx-large;
+      padding: 2rem 1rem;
+    }
+    h2 {
+      background-color: #eeeeee;
+      text-align: center;
+    }
+  }
+  .itemContainer {
+    display: flex;
+    align-items: stretch;
+    margin: 30px 30px 10px 30px;
+
+    .CreateTitle, .CreateUpload {
+      text-align: center;
+      font-size: large;
+      font-weight: bold;
+    }
+
+    .CreateTitle {
+      padding-top: 20px;
+      padding-right: 20px;
+      border-right: 2px solid $secondaryColor;
+
+    }
+
+    .CreateUpload {
+      margin-top: 10px;
+        #sockImageFile {
+          margin-top: 20px;
+          margin-left: auto;
+          margin-right: auto;
+          cursor: pointer;
+          background-color: rgb(146, 194, 214);
+          width: auto;
+          border-radius: 5px;
+          transition: .3s;
+        }
+    }
+  }
+
+   table
+    {
+      margin-top: 30px;
+      display: flex;
+      border-spacing: 20px;
+      font-weight: bold;
+      background-color: #eeeeee;
+    }
+
+  .CreateDescription {
+    font-size: large;
+    padding-left: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    #description {
+      margin-left: 20px;
+    }
+  }
+  .CreateButton
+  {
+    padding: 5px;
+    margin-top: 20px;
+    background-color: #eeeeee;
+    display: grid;
+    place-content: center;
+    input[type=submit]
+    {
+      cursor: pointer;
+      font-size: large;
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
+  }
+
+
+
+

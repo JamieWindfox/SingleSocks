@@ -1,0 +1,15 @@
+@import "src/styles.scss";
+main {
+
+  .CreateHeader {
+    background-color: $secondaryColor;
+    justify-content: left;
+
+    h1 {
+      color: white;
+      font-size: xx-large;
+      padding: 2rem 1rem;
+    }
+
+  }
+}
