@@ -95,7 +95,7 @@ router.delete('/:id',
                 return res.status(401).send('Unauthorized');
             }
 
-            Sock.deleteOne(sock._id).then(deletedSock => {
+            Sock.deleteOne({_id: sock._id}).then(deletedSock => {
                 res.sendStatus(204);
             })
             .catch(err => {
