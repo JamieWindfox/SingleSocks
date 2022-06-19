@@ -2,9 +2,10 @@ import {Material} from "./Material";
 import {SockPattern} from "./SockPattern";
 import {SockSize} from "./SockSize";
 import {Color} from "./Color";
+import {SafeResourceUrl} from "@angular/platform-browser";
 
 export interface SockProfile {
-  _id: number;
+  _id: string;
   name: string;
   size: SockSize;
   mainColor: Color;
@@ -15,6 +16,6 @@ export interface SockProfile {
   description: string;
   availability: boolean;
 
-  picture: string; // imageName
+  picture: SafeResourceUrl;
 
 }

@@ -13,7 +13,7 @@
   <!-- section for highlighted socks -->
   <section class="featuredSocks">
     <article *ngFor="let sock of featuredSocks">
-      <img src="assets/{{sock.picture}}">
+      <img [src]="sock.picture">
       <ul>
         <li><p><strong>{{sock.name}}</strong></p></li>
         <li><p>Size: {{sock.size}}</p></li>
@@ -24,25 +24,6 @@
       </ul>
     </article>
   </section>
-
-  <!-- section for diy -> wurde zu eigener Seite
-  <section id="diycorner" class="diycorner">
-    <p>Hello, this is the DIY Corner!</p>
-    <p>Idk anything about DIY-Projects with socks!</p>
-
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-    <br> <br> <br>
-
-  </section>-->
 
   <!-- section for contact -->
   <section id="ContactHeader" class="ContactHeader">

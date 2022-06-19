@@ -20,9 +20,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.linkList = new SingleSockLinkList();
 
-    // TODO
     this.sockService.query().subscribe(result => {
       this.featuredSocks = result.body;
+
+      for (let sock of this.featuredSocks) {
+        this.sockService.queryImage(sock._id).subscribe(result => {
+          sock.picture = this.sockService.getImagePath(result.body);
+        });
+      }
     });
   }
 
