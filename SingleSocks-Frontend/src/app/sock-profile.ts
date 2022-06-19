@@ -20,4 +20,6 @@ export interface SockProfile {
 
   picture?: SafeResourceUrl;
   imageData?: any;
+
+  user?: string
 }

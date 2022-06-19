@@ -52,8 +52,10 @@ export class RegisterUserComponent implements OnInit {
     };
     this.authService.register(user).subscribe({
       next: () => {
-        this.authService.setLoggedIn(true);
-        this.router.navigate(['/home']);
+        this.authService.auth().subscribe(result => {
+          this.authService.setUserLoggedIn(result.body.userId);
+          this.router.navigate(['/home']);
+        });
       },
       error: () => {
         this.validation.setErrors({'incorrect': true});

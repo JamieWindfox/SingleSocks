@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.authService.auth().subscribe(result => {
       if (result.body.isValid) {
-        this.authService.setLoggedIn(true);
+        this.authService.setUserLoggedIn(result.body.userId);
       }
     })
   }

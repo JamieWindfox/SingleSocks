@@ -9,7 +9,7 @@
       </a>
     </li>
 
-    <ng-container *ngIf="!authService.getLoggedIn()">
+    <ng-container *ngIf="!authService.isUserLoggedIn()">
       <li *ngFor="let link of authLinkList.links">
         <a [routerLink]="'/' + link.link">
           <span>{{link.name}}</span>
@@ -17,7 +17,7 @@
         </a>
       </li>
     </ng-container>
-    <ng-container *ngIf="authService.getLoggedIn()">
+    <ng-container *ngIf="authService.isUserLoggedIn()">
       <li *ngFor="let link of linkLoggedInlist.links">
         <a [routerLink]="'/' + link.link">
           <span>{{link.name}}</span>
@@ -49,7 +49,7 @@
             </svg>
           </a>
         </li>
-        <ng-container *ngIf="!authService.getLoggedIn()">
+        <ng-container *ngIf="!authService.isUserLoggedIn()">
           <li *ngFor="let link of authLinkList.links">
             <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
               <span>{{link.name}}</span>
@@ -57,7 +57,7 @@
             </a>
           </li>
         </ng-container>
-        <ng-container *ngIf="authService.getLoggedIn()">
+        <ng-container *ngIf="authService.isUserLoggedIn()">
           <li *ngFor="let link of linkLoggedInlist.links">
             <a [routerLink]="'/' + link.link" (click)="isMenuVisible=false">
               <span>{{link.name}}</span>

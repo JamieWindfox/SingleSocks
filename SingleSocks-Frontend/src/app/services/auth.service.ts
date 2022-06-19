@@ -8,7 +8,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class AuthService {
 
   private url = "api/auth"
-  private loggedIn = false;
+  private userId = "";
 
   constructor(private httpClient: HttpClient) {
   }
@@ -33,11 +33,15 @@ export class AuthService {
     return this.httpClient.get<any>(this.url + "/validate", {observe: "response", withCredentials: true});
   }
 
-  setLoggedIn(loggedIn: boolean) {
-    this.loggedIn = loggedIn;
+  setUserLoggedIn(userId: string) {
+    this.userId = userId;
   }
 
-  getLoggedIn(): boolean {
-    return this.loggedIn;
+  getUserId() {
+    return this.userId;
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.userId != "";
   }
 }
