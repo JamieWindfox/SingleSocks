@@ -38,8 +38,6 @@ export class AuthService {
   }
 
   getLoggedIn(): boolean {
-    // That's a security issue lol TODO
-    // Missing check whether JWT Cookie token is still valid to check if user is logged in or not
     return this.loggedIn;
   }
 }

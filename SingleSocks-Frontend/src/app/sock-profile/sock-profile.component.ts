@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {SockService} from "../services/sock.service";
 import {AttributeService} from "../services/attribute.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-sock-profile',
@@ -32,11 +33,9 @@ export class SockProfileComponent implements OnInit {
     const sockId = this.route.snapshot.paramMap.get('id');
 
     this.sockService.queryById(sockId).subscribe(result => {
-      this.sockService.queryImage(result.body._id).subscribe(imgResult => {
-        this.sock = result.body;
-        this.sock.picture = this.sockService.getImagePath(imgResult.body);
-        this.initValidation();
-      });
+      this.sock = result.body;
+      this.sock.picture = environment.serverUrl + 'api/images/' + this.sock._id;
+      this.initValidation();
     })
 
     this.attributeService.getAttributes().subscribe((result) => {

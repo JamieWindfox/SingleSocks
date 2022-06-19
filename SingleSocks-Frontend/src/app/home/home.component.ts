@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SingleSockLinkList} from "../SingleSockLink";
 import {SockProfile} from "../sock-profile";
 import {SockService} from "../services/sock.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-home',
@@ -24,9 +25,7 @@ export class HomeComponent implements OnInit {
       this.featuredSocks = result.body;
 
       for (let sock of this.featuredSocks) {
-        this.sockService.queryImage(sock._id).subscribe(result => {
-          sock.picture = this.sockService.getImagePath(result.body);
-        });
+        sock.picture = environment.serverUrl + 'api/images/' + sock._id;
       }
     });
   }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthLinkList, SingleSockLinkList, SingleSockLoggedInLinkList} from "../SingleSockLink";
 import {AuthService} from "../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -14,10 +15,13 @@ export class HeaderComponent implements OnInit {
   authLinkList = new AuthLinkList();
   isMenuVisible = true;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    // TODO
+  }
 }

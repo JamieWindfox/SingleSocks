@@ -26,8 +26,8 @@
           </svg>
         </a>
       </li>
-      <li>
-        <a [routerLink]="'/home'">
+      <li (click)="logout()">
+        <a>
           <span>Logout</span>
           <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
         </a>
@@ -66,8 +66,8 @@
               </svg>
             </a>
           </li>
-          <li>
-            <a [routerLink]="'/home'">
+          <li (click)="logout()">
+            <a>
               <span>Logout</span>
               <i class="fa-solid fa-arrow-right-to-bracket beside-icon"></i>
             </a>
