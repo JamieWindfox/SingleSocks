@@ -50,13 +50,7 @@ router.post('/register',
     }),
     body('password').isStrongPassword({minLength: 6}),
     body('displayName').matches("^[a-zA-Z0-9 ]{5,32}$"),
-    body('location').custom(value => {
-        if(!value.lng) return Promise.reject('Longitude missing.')
-        if(!value.lat) return Promise.reject('Latitude missing.')
-        if(typeof value.lng !== 'number') return Promise.reject('Longitude has wrong format.')
-        if(typeof value.lat !== 'number') return Promise.reject('Latitude has wrong format.')
-        return true
-    }),
+    body('location').custom(v => require('../etc/validators').isLocation(v)),
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -100,7 +94,9 @@ router.get('/validate', cookie('SESSION_TOKEN').isJWT(), (req, res, next) => {
             return res.status(200).json({
                 'message': 'The token is valid.',
                 'isValid': true,
-                'remainingTime': Number(payload.exp) - Math.floor(Date.now() / 1000)
+                'remainingTime': Number(payload.exp) - Math.floor(Date.now() / 1000),
+                'userId': payload.user._id,
+                'email': payload.user.email
             });
         }
 
