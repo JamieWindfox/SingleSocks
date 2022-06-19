@@ -265,7 +265,8 @@ nav ul li:active a, nav ul li:hover a {
   flex-direction: column;
   align-items: center;
 }
-.itemContainer .productSelection .buttons #cartButton, .itemContainer .productSelection .buttons #purchaseButton {
+
+.itemContainer .productSelection .buttons #contactButton, .itemContainer .productSelection .buttons #tradeButton {
   cursor: pointer;
   border: none;
   background-color: rgb(146, 194, 214);
@@ -277,9 +278,11 @@ nav ul li:active a, nav ul li:hover a {
   font-size: 120%;
   transition: 0.3s;
 }
-.itemContainer .productSelection .buttons #purchaseButton {
+
+.itemContainer .productSelection .buttons #tradeButton {
   margin-top: 0;
 }
+
 .itemContainer .productSelection #returnProduct {
   font-size: 120%;
   padding: 20px;

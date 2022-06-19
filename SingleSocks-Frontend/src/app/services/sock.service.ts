@@ -17,6 +17,10 @@ export class SockService {
     return this.httpClient.get<SockProfile[]>(this.url, {observe: "response"});
   }
 
+  queryById(id: string) {
+    return this.httpClient.get<SockProfile>(this.url + `/${id}`, {observe: "response"});
+  }
+
   queryImage(id: string) {
     return this.httpClient.get(this.imageUrl + `/${id}`, {observe: "response", responseType: 'blob'});
   }

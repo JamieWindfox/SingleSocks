@@ -343,7 +343,7 @@ nav {
       flex-direction: column;
       align-items: center;
 
-      #cartButton, #purchaseButton {
+      #contactButton, #tradeButton {
         cursor: pointer;
         border: none;
 
@@ -359,7 +359,8 @@ nav {
         transition: .3s;
 
       }
-      #purchaseButton {
+
+      #tradeButton {
         margin-top: 0;
       }
     }

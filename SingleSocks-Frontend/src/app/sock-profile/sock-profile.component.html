@@ -1,12 +1,12 @@
 <section class="SockHeader">
   <h1>Sock Profile</h1>
 </section>
-<main>
+<main *ngIf="sock">
 
   <div class="itemContainer">
 
     <div class="productImage">
-      <img src="assets/{{sock.picture}}">
+      <img [src]="sock.picture">
     </div>
 
     <br>
@@ -17,28 +17,23 @@
       <br>
       <br>
       <br>
+      <!-- TODO - is name necessary? -->
       <h2 id="productName">{{sock.name}}</h2>
     </div>
 
 
     <div class="productSelection">
       <div class="additionalInformation">
-        <p id="available">Available</p>
+        <p id="available">{{sock.availability ? 'Available' : 'Taken'}}</p>
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <img style="display: none" src="assets/downArrow.png">
-      <!-- just there so that the arrow will be displayed-->
 
       <div class="buttons">
-        <button id="cartButton">Add sock to cart</button>
-        <button id="purchaseButton">Fast check-out</button>
+        <button id="tradeButton">Offer trade</button>
+        <button id="contactButton">Contact user</button>
       </div>
 
       <div class="returnInfo">
-        <p id="returnProduct">Returns are excluded for private sales. If you find any defects in the product, please
+        <p id="returnProduct">If you find any defects in the product, please
           contact <strong>SingleSocks Headquarters</strong> directly at +436501234567. </p>
       </div>
 
@@ -67,6 +62,18 @@
         <td>{{sock.size}}</td>
       </tr>
       <tr>
+        <th>Color:</th>
+        <td>{{sock.mainColor}}</td>
+      </tr>
+      <tr>
+        <th>Material:</th>
+        <td>{{sock.material}}</td>
+      </tr>
+      <tr>
+        <th>Pattern:</th>
+        <td>{{sock.pattern}}</td>
+      </tr>
+      <tr>
         <th>Condition:</th>
         <td>{{sock.condition}}</td>
       </tr>
@@ -78,54 +85,49 @@
 
     <div class="firstRow">
       <div class="leftContainer">
-        <h1 id="section1Heading" class="sectionHeading">Random Sock Facts</h1>
+        <h1 id="section1Heading" class="sectionHeading">Description</h1>
         <p id="section1Text" class="sectionText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-          Ut enim ad minim veniam, quis nostrud exercitation<br>
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
-          Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur.
+          {{sock.description}}
         </p>
       </div>
-      <div class="rightContainer">
-        <h1 id="section2Heading" class="sectionHeading">Another Random Sock Facts</h1>
-        <p id="section2Text" class="sectionText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-          Ut enim ad minim veniam, quis nostrud exercitation<br>
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
-          Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-      </div>
+      <!--      <div class="rightContainer">-->
+      <!--        <h1 id="section2Heading" class="sectionHeading">Another Random Sock Facts</h1>-->
+      <!--        <p id="section2Text" class="sectionText">-->
+      <!--          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>-->
+      <!--          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>-->
+      <!--          Ut enim ad minim veniam, quis nostrud exercitation<br>-->
+      <!--          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>-->
+      <!--          Duis aute irure dolor in reprehenderit in voluptate-->
+      <!--          velit esse cillum dolore eu fugiat nulla pariatur.-->
+      <!--        </p>-->
+      <!--      </div>-->
     </div>
 
-    <div class="secondRow">
-      <div class="leftContainer">
-        <h1 id="section3Heading" class="sectionHeading">Not-so-random Sock Facts</h1>
-        <p id="section3Text" class="sectionText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-          Ut enim ad minim veniam, quis nostrud exercitation<br>
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
-          Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-      </div>
+    <!--    <div class="secondRow">-->
+    <!--      <div class="leftContainer">-->
+    <!--        <h1 id="section3Heading" class="sectionHeading">Not-so-random Sock Facts</h1>-->
+    <!--        <p id="section3Text" class="sectionText">-->
+    <!--          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>-->
+    <!--          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>-->
+    <!--          Ut enim ad minim veniam, quis nostrud exercitation<br>-->
+    <!--          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>-->
+    <!--          Duis aute irure dolor in reprehenderit in voluptate-->
+    <!--          velit esse cillum dolore eu fugiat nulla pariatur.-->
+    <!--        </p>-->
+    <!--      </div>-->
 
-      <div class="rightContainer">
-        <h1 id="section4Heading" class="sectionHeading">Optional Sock Fact</h1>
-        <p id="section4Text" class="sectionText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-          Ut enim ad minim veniam, quis nostrud exercitation<br>
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
-          Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-      </div>
-    </div>
+    <!--      <div class="rightContainer">-->
+    <!--        <h1 id="section4Heading" class="sectionHeading">Optional Sock Fact</h1>-->
+    <!--        <p id="section4Text" class="sectionText">-->
+    <!--          Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>-->
+    <!--          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>-->
+    <!--          Ut enim ad minim veniam, quis nostrud exercitation<br>-->
+    <!--          ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>-->
+    <!--          Duis aute irure dolor in reprehenderit in voluptate-->
+    <!--          velit esse cillum dolore eu fugiat nulla pariatur.-->
+    <!--        </p>-->
+    <!--      </div>-->
+    <!--    </div>-->
 
   </div>
 
