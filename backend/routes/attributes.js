@@ -2,6 +2,18 @@ var express = require('express');
 const Attribute = require('../models/Attribute')
 var router = express.Router();
 
+router.get('/', (req, res) => {
+    res.send({
+        mainColor: Attribute.mainColors,
+        material: Attribute.materials,
+        pattern: Attribute.patterns,
+        size: Attribute.sizes,
+        type: Attribute.types,
+        maintainer: Attribute.maintainers,
+        condition: Attribute.conditions
+    });
+});
+
 router.get('/mainColor', (req, res, next) => {
     res.send(Attribute.mainColors)
 });
