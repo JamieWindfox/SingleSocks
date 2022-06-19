@@ -5,6 +5,9 @@ import {SockSize} from "../SockSize";
 import {SockPattern} from "../SockPattern";
 import {SockType} from "../SockType";
 import {Material} from "../Material";
+import {SockProfile} from "../sock-profile";
+import {SockService} from "../services/sock.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-find-socks',
@@ -21,7 +24,9 @@ export class FindSocksComponent implements OnInit {
   types: string[];
   materials: string[];
 
-  constructor() { }
+  filteredSocks: SockProfile[] = []
+
+  constructor(private sockService: SockService) {}
 
   ngOnInit(): void {
     this.linkList = new SingleSockLinkList();
@@ -40,6 +45,14 @@ export class FindSocksComponent implements OnInit {
     });
     this.materials = Object.values(Material).filter((item) => {
       return isNaN(Number(item));
+    });
+
+    this.sockService.query().subscribe(result => {
+      this.filteredSocks = result.body;
+
+      for (let sock of this.filteredSocks) {
+        sock.picture = environment.serverUrl + 'api/images/' + sock._id;
+      }
     });
   }
 

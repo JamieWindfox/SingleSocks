@@ -95,11 +95,12 @@ main .SockLovers article img {
   left: 75%;
   top: -15%;
   width: 45%;
+  max-height: 170px;
 }
 
 main .SockLovers article ul {
   position: relative;
-  top: -140px;
+  top: -160px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

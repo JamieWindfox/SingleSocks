@@ -53,68 +53,14 @@
     <section>
       <section class="SockLovers">
 
-        <article>
-          <img src="assets/redsinglesock.png">
+        <article *ngFor="let sock of filteredSocks">
+          <img [src]="sock.picture">
           <ul>
-            <li><p><strong>Red Single</strong></p></li>
-            <li><p>Click here for details!</p></li>
+            <li><p><strong>{{sock.name}}</strong></p></li>
+            <li><p>Size: {{sock.size}}</p></li>
+            <li><p>Condition: {{sock.condition}}</p></li>
             <li>
-              <button>Select Product</button>
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <img src="assets/bluestripesocks.png">
-          <ul>
-            <li><p><strong>Blue Stripe</strong></p></li>
-            <li><p>Click here for details!</p></li>
-            <li>
-              <button>Select Product</button>
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <img src="assets/greysocks.png">
-          <ul>
-            <li><p><strong>Grey Blank</strong></p></li>
-            <li><p>Click here for details!</p></li>
-            <li>
-              <button>Select Product</button>
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <img src="assets/bluestripesocks.png">
-          <ul>
-            <li><p><strong>Blue Stripe</strong></p></li>
-            <li><p>Click here for details!</p></li>
-            <li>
-              <button>Select Product</button>
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <img src="assets/redsinglesock.png">
-          <ul>
-            <li><p><strong>Red Single</strong></p></li>
-            <li><p>Click here for details!</p></li>
-            <li>
-              <button>Select Product</button>
-            </li>
-          </ul>
-        </article>
-
-        <article>
-          <img src="assets/redsinglesock.png">
-          <ul>
-            <li><p><strong>Red Single</strong></p></li>
-            <li><p>Click here for details!</p></li>
-            <li>
-              <button>Select Product</button>
+              <button title="open sock"><a [routerLink]="['/sock', sock._id]">&#10024;Thats my match!</a></button>
             </li>
           </ul>
         </article>
