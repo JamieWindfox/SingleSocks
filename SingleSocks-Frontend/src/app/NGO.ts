@@ -1,7 +1,6 @@
-import {SingleSockLink} from "./SingleSockLink";
-
+// TODO get this enum from backend instead
 export enum NGO {
   rotesKreuz = "Wiener Rotes Kreuz",
-  caritas = "Caritas",
+  Caritas = "Caritas",
   humana = "Humana"
 }

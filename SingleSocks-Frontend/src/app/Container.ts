@@ -6,5 +6,5 @@ export interface Container {
     lng: number;
     lat: number;
   },
-  maintainer: NGO
+  maintainer: NGO;
 }

@@ -4,11 +4,11 @@
   </section>
   <section id="ngo_section">
     <br>
-    <p>	🧦    Select one of the following NGO's to see on the Map    🧦 </p>
-        <li *ngFor="let ngo of ngoList" value="{{ngo}}" style="list-style-type: none">
-          <label for="{{ngo}}_checkbox">{{ngo}}</label>
-          <input size="25" type="checkbox" id="{{ngo}}_checkbox" (change)="toggleNGO(ngo)">
-        </li>
+    <p> 🧦 Select one of the following NGO's to see on the Map 🧦 </p>
+    <li *ngFor="let ngo of ngos | keyvalue" style="list-style-type: none">
+      <label for="{{ngo.key}}_checkbox">{{ngo.value}}</label>
+      <input size="25" type="checkbox" id="{{ngo.key}}_checkbox" (change)="toggleNGO(ngo.key)">
+    </li>
   </section>
   <br>
   <div id="map" class="Map"></div>
