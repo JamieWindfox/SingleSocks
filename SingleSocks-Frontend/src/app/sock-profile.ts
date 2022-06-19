@@ -3,19 +3,21 @@ import {SockPattern} from "./SockPattern";
 import {SockSize} from "./SockSize";
 import {Color} from "./Color";
 import {SafeResourceUrl} from "@angular/platform-browser";
+import {SockType} from "./SockType";
 
 export interface SockProfile {
-  _id: string;
+  _id?: string;
   name: string;
   size: SockSize;
   mainColor: Color;
   material: Material;
-  pattern: SockPattern
+  pattern: SockPattern;
+  type: SockType;
 
   condition: string;
   description: string;
-  availability: boolean;
+  availability?: boolean;
 
-  picture: SafeResourceUrl;
-
+  picture?: SafeResourceUrl;
+  imageData?: any;
 }

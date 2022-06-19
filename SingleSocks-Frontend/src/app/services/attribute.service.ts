@@ -11,8 +11,8 @@ export class AttributeService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getColors() {
-    return this.httpClient.get<Map<string, string>>(this.url + "/mainColor", {observe: "response"});
+  // TODO get rid of enums
+  getAttributes() {
+    return this.httpClient.get<Map<string, Map<string, string>>>(this.url, {observe: "response"});
   }
-  // TODO
 }

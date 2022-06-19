@@ -4,105 +4,50 @@
     <h2>Please tell us a bit more about your Single Sock!</h2>
   </section>
 
-  <!--TODO-->
-  <form action="app.sockProfile.html">
+  <form (ngSubmit)="create()" [formGroup]="validation">
     <div class="itemContainer">
-    <section class="CreateTitle">
-      <p>
-        <label for="sockTitle">Name of your Sock: </label>
-        <input type="text" id="sockTitle" name="sockTitle">
-      </p>
-    </section>
+      <section class="CreateTitle">
+        <p>
+          <label for="sockTitle">Name of your Sock: </label>
+          <input type="text" id="sockTitle" name="sockTitle" formControlName="name">
+        </p>
+      </section>
 
-    <section class="CreateUpload">
-      <p><label for="sockImageFile">Upload a picture of your SingleSock</label></p>
-      <p><input type="file" id="sockImageFile" accept="image/*" style="display: flex" name="sockImage"></p>
-      <!--
-      <p><img id="sockImage" scr="#" alt="Preview of your SingleSock" width="300"/></p>
-      -->
-      <br>
-    </section>
+      <section class="CreateUpload">
+        <p><label for="sockImageFile">Upload a picture of your SingleSock</label></p>
+        <p><input type="file" (change)="fileUploaded($event)" id="sockImageFile" accept="image/*" style="display: flex"
+                  name="sockImage"></p>
+        <!--
+        <p><img id="sockImage" scr="#" alt="Preview of your SingleSock" width="300"/></p>
+        -->
+        <br>
+      </section>
     </div>
 
     <table style="overflow-x:auto;">
-      <tr>
+      <tr *ngFor="let item of attributes | keyvalue">
         <td>
-          <label for="mainColour">Main colour: </label>
+          <label for="{{item.key}}">{{item.key}}: </label>
         </td>
         <td>
-          <select id="mainColour" name="mainColour">
-            <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
-          </select>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <label for="sockSize">Size: </label>
-        </td>
-        <td>
-          <select id="sockSize" name="sockSize">
-            <option *ngFor="let sockSize of sizes" value={{sockSize}}>{{sockSize}}</option>
-          </select>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <label for="pattern">Pattern: </label>
-        </td>
-        <td>
-          <select id="pattern" name="pattern">
-            <option *ngFor="let pattern of patterns" value={{pattern}}>{{pattern}}</option>
-          </select>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <label for="type">Type: </label>
-        </td>
-        <td>
-          <select id="type" name="type">
-            <option *ngFor="let type of types" value={{type}}>{{type}}</option>
-          </select>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <label for="material">Material: </label>
-        </td>
-        <td>
-          <select id="material" name="material">
-            <option *ngFor="let material of materials" value={{material}}>{{material}}</option>
-          </select>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <label for="condition">Condition: </label>
-        </td>
-        <td>
-          <select id="condition" name="material">
-            <!-- TODO enum-ify conditions -->
-            <option *ngFor="let material of materials" value={{material}}>{{material}}</option>
+          <select id="{{item.key}}" name="{{item.key}}" formControlName="{{item.key}}">
+            <option *ngFor="let attributeValue of item.value | keyvalue"
+                    [value]="attributeValue.key">{{attributeValue.value}}</option>
           </select>
         </td>
       </tr>
     </table>
     <br>
 
-    <div class ="CreateDescription">
-    <label for="description">Short description: </label>
+    <div class="CreateDescription">
+      <label for="description">Short description: </label>
       <br>
-    <textarea id="description" name="description" cols="70" rows="8"></textarea>
+      <textarea id="description" name="description" cols="70" rows="8" formControlName="description"></textarea>
     </div>
-    <div class ="CreateButton">
-    <p>
-      <input type="submit" value="Create SingleSock">
-    </p>
+    <div class="CreateButton">
+      <p>
+        <input type="submit" value="Create SingleSock" [disabled]="validation.invalid">
+      </p>
     </div>
   </form>
 

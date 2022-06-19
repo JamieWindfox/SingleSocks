@@ -28,4 +28,8 @@ export class SockService {
   getImagePath(blob: any) {
     return this._sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
   }
+
+  create(sock: SockProfile) {
+    return this.httpClient.post<SockProfile>(this.url, sock, {observe: "response", withCredentials: true});
+  }
 }
