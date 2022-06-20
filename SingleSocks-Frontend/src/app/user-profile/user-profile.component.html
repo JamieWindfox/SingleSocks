@@ -1,10 +1,9 @@
 <main *ngIf="userInfo">
   <section class="CreateHeader">
     <h1>User Profile</h1>
-
   </section>
-  <h2>Welcome back, {{userInfo.displayName}}!</h2>
-  <table>
+  <h2>Welcome back, <em>{{userInfo.displayName}}!</em></h2>
+  <table id="Info">
     <tr>
       <td>
         <b>E-mail:</b>

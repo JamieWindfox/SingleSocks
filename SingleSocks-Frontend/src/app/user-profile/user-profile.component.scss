@@ -13,6 +13,24 @@ main {
 
   }
 
+  h2 {
+    background-color: #eeeeee;
+    margin-top: 20px;
+    padding-left: 50px;
+    em
+    {
+      color: white;
+      text-shadow: 2px 2px 5px $secondaryColor;
+    }
+  }
+
+  #Info
+  {
+    margin-top: 20px;
+    margin-left: 50px;
+    font-size: large;
+  }
+
   .listOfSocks, .productDescriptionContainer {
 
     display: block;
@@ -66,14 +84,13 @@ main {
       }
 
       label {
-        cursor: pointer;
         text-align: center;
 
         border-radius: 10px;
         transition: background-color .3s;
         max-width: 250px;
         background-color: #eeeeee;
-        padding: 25px;
+        padding: 10px;
       }
     }
 
@@ -85,7 +102,6 @@ main {
   .featuredSocks {
 
     -ms-overflow-style: none;
-    scrollbar-width: none;
 
     display: flex;
     overflow-y: hidden;
@@ -101,7 +117,6 @@ main {
     }
 
     background-color: white;
-    @include shadow(inside);
 
 
     article {
