@@ -27,8 +27,8 @@
       <br>
     </section>
 
-    <div *ngIf="validation.errors?.['incorrect']">
-      Something went wrong.
+    <div *ngIf="validation.errors?.['incorrect']" style="text-align: center">
+      Something went wrong. Please check your inputs.
     </div>
     <div class="buttonFlex">
       <button id="submitButton" class="submitButton" title="Sign In" type="submit">Register</button>
