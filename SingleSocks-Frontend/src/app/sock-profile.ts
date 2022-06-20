@@ -1,18 +1,13 @@
-import {Material} from "./Material";
-import {SockPattern} from "./SockPattern";
-import {SockSize} from "./SockSize";
-import {Color} from "./Color";
 import {SafeResourceUrl} from "@angular/platform-browser";
-import {SockType} from "./SockType";
 
 export interface SockProfile {
   _id?: string;
   name: string;
-  size: SockSize;
-  mainColor: Color;
-  material: Material;
-  pattern: SockPattern;
-  type: SockType;
+  size: string;
+  mainColor: string;
+  material: string;
+  pattern: string;
+  type: string;
 
   condition: string;
   description: string;

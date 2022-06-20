@@ -6,36 +6,20 @@
   <section id="filter_section" class="filter_section">
     <table>
       <tr>
-        <td><label for="mainColour">Main colour</label></td>
-        <td><label for="sockSize">Size</label></td>
-        <td><label for="pattern">Pattern</label></td>
-        <td><label for="type">Type</label></td>
-        <td><label for="material">Material</label></td>
+        <td *ngFor="let attribute of attributes | keyvalue"><label for="{{attribute.key}}">{{attribute.key}}</label>
+        </td>
       </tr>
       <tr>
-        <td><select id="mainColour" name="mainColour">
-          <option value = "allColors">All Colors</option>
-          <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
-        </select></td>
-        <td><select id="sockSize" name="sockSize">
-          <option value = "allSizes">All Sizes</option>
-          <option *ngFor="let sockSize of sizes" value={{sockSize}}>{{sockSize}}</option>
-        </select></td>
-        <td><select id="pattern" name="pattern">
-          <option value = "allPatterns">All Patterns</option>
-          <option *ngFor="let pattern of patterns" value={{pattern}}>{{pattern}}</option>
-        </select></td>
-        <td><select id="type" name="type">
-          <option value = "allTypes">All Types</option>
-          <option *ngFor="let type of types" value={{type}}>{{type}}</option>
-        </select></td>
-        <td><select id="material" name="material">
-          <option value = "allMaterials">All Materials</option>
-          <option *ngFor="let material of materials" value={{material}}>{{material}}</option>
-        </select></td>
+        <td *ngFor="let attribute of attributes | keyvalue">
+          <select id="{{attribute.key}}" name="{{attribute.key}}">
+            <option value="allColors">All</option>
+            <option *ngFor="let item of attribute.value | keyvalue" value="{{item.key}}">{{item.value}}</option>
+          </select>
+        </td>
       </tr>
     </table>
-  </section><br>
+  </section>
+  <br>
 
   <section id="sort_section" class="sort_section">
     Sort Socks by
@@ -126,7 +110,7 @@
           <img src="assets/profile2.png">
           <ul>
             <li><p></p></li>
-            <li><p> </p></li>
+            <li><p></p></li>
             <li><p><strong>Petra Pride</strong></p></li>
             <li><p>Wants to create rainbow socks</p></li>
             <li>

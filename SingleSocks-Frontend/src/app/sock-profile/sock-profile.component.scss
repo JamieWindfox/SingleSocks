@@ -233,6 +233,14 @@
   padding: 10px;
   margin: 0 30px 30px 30px;
 
+  i {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
   table {
     width: 100%;

@@ -158,7 +158,7 @@ main {
             &:active, &:hover {
               background-color: $secondaryColor;
               border-radius: 1.75rem;
-
+              cursor: pointer;
               color: white;
               @include shadow(outside);
 

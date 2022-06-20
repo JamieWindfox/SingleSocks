@@ -16,7 +16,8 @@
       <p>
         <label id="userPassword-lbl" for="userPasswordInput"><b>Choose a password</b> (not visible to others): </label>
         <input type="password" id="userPasswordInput" name="userPassword" formControlName="password">
-      <p id="passwordSecurityTipp-lbl">❗Your password must be between 8 and 20 signs long, include capital and lower letters, numbers and contain the following special characters: !$%&/()=?*❗</p>
+      <p id="passwordSecurityTipp-lbl">❗Your password must be between 8 and 20 signs long, include capital and lower
+        letters, numbers and contain the following special characters: !$%&/()=?*❗</p>
     </section>
 
     <section>
@@ -26,9 +27,11 @@
       <br>
     </section>
 
+    <div *ngIf="validation.errors?.['incorrect']">
+      Something went wrong.
+    </div>
     <div class="buttonFlex">
       <button id="submitButton" class="submitButton" title="Sign In" type="submit">Register</button>
-      <!--<button id="resetButton" class="resetButton" title="reset" type="reset">Reset</button>-->
     </div>
     <br>
   </form>

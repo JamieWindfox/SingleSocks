@@ -1,13 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthLinkList, SingleSockLinkList} from "../SingleSockLink";
-import {Color} from "../Color";
-import {SockSize} from "../SockSize";
-import {SockPattern} from "../SockPattern";
-import {SockType} from "../SockType";
-import {Material} from "../Material";
+import {Component, OnInit} from '@angular/core';
 import {SockProfile} from "../sock-profile";
 import {SockService} from "../services/sock.service";
 import {environment} from "../../environments/environment";
+import {AttributeService} from "../services/attribute.service";
 
 @Component({
   selector: 'app-find-socks',
@@ -16,35 +11,19 @@ import {environment} from "../../environments/environment";
 })
 export class FindSocksComponent implements OnInit {
 
-  linkList: SingleSockLinkList;
-  authLinkList: AuthLinkList;
-  colors: string[];
-  sizes: string[];
-  patterns: string[];
-  types: string[];
-  materials: string[];
-
+  attributes = new Map<string, any>();
   filteredSocks: SockProfile[] = []
 
-  constructor(private sockService: SockService) {}
+  constructor(private sockService: SockService, private attributeService: AttributeService) {
+  }
 
   ngOnInit(): void {
-    this.linkList = new SingleSockLinkList();
-    this.authLinkList = new AuthLinkList();
-    this.colors = Object.values(Color).filter((item) => {
-      return isNaN(Number(item));
-    });
-    this.sizes = Object.values(SockSize).filter((item) => {
-      return isNaN(Number(item));
-    });
-    this.patterns = Object.values(SockPattern).filter((item) => {
-      return isNaN(Number(item));
-    });
-    this.types = Object.values(SockType).filter((item) => {
-      return isNaN(Number(item));
-    });
-    this.materials = Object.values(Material).filter((item) => {
-      return isNaN(Number(item));
+    this.attributeService.getAttributes().subscribe((result) => {
+      let attributes = Object.keys(result.body).filter(value => value != "maintainer");
+      for (let attribute of attributes) {
+        // @ts-ignore TODO
+        this.attributes.set(attribute, result.body[attribute]);
+      }
     });
 
     this.sockService.query().subscribe(result => {
