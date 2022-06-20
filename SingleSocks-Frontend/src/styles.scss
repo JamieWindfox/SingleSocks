@@ -7,17 +7,6 @@ $media: (
   2 xl: 1536px, 3 xl: 1920px,
 );
 
-@mixin md($breakpoint) {
-  @each $breakpoints, $size in $media {
-    @if $breakpoint==$breakpoints {
-      @media screen and (min-width: $size) {
-        @content;
-      }
-    }
-  }
-}
-
-
 @mixin paddingContent {
   padding: 1rem 2rem;
 }
