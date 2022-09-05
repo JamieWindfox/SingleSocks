@@ -38,23 +38,26 @@ passport.use(
 
 const cookieExtractor = req => {
     var token = null;
-    if (req && req.cookies)
-    {
+    if (req && req.cookies) {
         token = req.cookies['SESSION_TOKEN'];
     }
     return token;
 };
 
+// JSON Web Token is saved as Cookie named "SESSION_TOKEN"
+// Frontend must send the cookie to backend for authentication
+// Content of JWT is email and password but hashed
+// Why as cookie? It's safe due to the attribute "HttpOnly" and the user cannot view the cookie
 passport.use(
     new JWTstrategy({
-        secretOrKey: process.env.TOKEN_SECRET,
-        jwtFromRequest: cookieExtractor
-    },
-    async (token, done) => {
-        try {
-            const user = await User.findOne({ _id: token.user._id });
-            if(user) {
-                token.user.isAdmin = user.isAdmin;
+            secretOrKey: process.env.TOKEN_SECRET,
+            jwtFromRequest: cookieExtractor
+        },
+        async (token, done) => {
+            try {
+                const user = await User.findOne({_id: token.user._id});
+                if (user) {
+                    token.user.isAdmin = user.isAdmin;
             }
             return done(null, token.user);
         } catch (error) {

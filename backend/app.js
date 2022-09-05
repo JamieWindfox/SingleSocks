@@ -8,10 +8,13 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const fs = require('fs');
-require('dotenv').config({path: 'sec/secrets.env'}); // Puts variables in process.env
-require('dotenv').config({path: 'environment.env'});
+
+// Loading secret tokens from an uncommitted file
+require('dotenv').config({path: __dirname + '/sec/secrets.env'}); // Puts variables in process.env
+require('dotenv').config({path: __dirname + '/environment.env'});
 require('./etc/auth');
 
+// Framework for the backend
 var app = express();
 
 // view engine setup
@@ -19,11 +22,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // MongoDB
-const credentials = 'sec/X509-cert-162076558419483000.pem'
+const credentials = __dirname + '/sec/X509-cert-162076558419483000.pem'
 const client = mongoose.connect('mongodb+srv://cluster0.w91hd.mongodb.net/singlesocks?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority', {
   sslKey: credentials,
-    sslCert: credentials,
-    ssl: true
+  sslCert: credentials,
+  ssl: true
 });
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 mongoose.connection.on('connected', (err, res) => {
@@ -31,9 +34,12 @@ mongoose.connection.on('connected', (err, res) => {
 });
 
 app.set('uploadPath', 'images');
-if(!fs.existsSync(app.settings.uploadPath))
+if (!fs.existsSync(app.settings.uploadPath))
   fs.mkdirSync(app.settings.uploadPath);
 
+// Middleware Configurations - "How to handle requests"
+
+// Cross-origin resource sharing - Image only loadable in our website or websites configured
 app.use(cors())
 app.use(logger('dev'));
 app.use(express.json({limit: '5mb'}));

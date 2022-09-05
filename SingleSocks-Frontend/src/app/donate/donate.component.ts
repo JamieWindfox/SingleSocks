@@ -27,6 +27,8 @@ export class DonateComponent implements OnInit {
 
     let map = L.map('map').setView([48.20, 16.4], 12);
 
+    // Using OpenStreetMap as REST Web Service with the help of the leaflet library
+    // Use REST Webservices in Backend not in Frontend otherwise the user can view secrets like API-Key
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 30,
       attribution: '© OpenStreetMap'

@@ -26,6 +26,7 @@ export class FindSocksComponent implements OnInit {
       }
     });
 
+    // Once request is finished, the lambda function will be executed and the response can be used to edit the data
     this.sockService.query().subscribe(result => {
       this.filteredSocks = result.body;
 

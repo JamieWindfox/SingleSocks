@@ -11,6 +11,7 @@ export class SockService {
   constructor(private httpClient: HttpClient) {
   }
 
+  // This method is an observable, we subscribe to this observable and once this request finished (Go to the usage)
   query() {
     return this.httpClient.get<SockProfile[]>(this.url, {observe: "response"});
   }

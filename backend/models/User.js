@@ -20,6 +20,7 @@ var UserSchema = new Schema({
     latestLogin: Date,
     verificationCode: {
         type: String,
+        // if this fails just comment it out
         default: crypto.randomUUID()
     },
     verifiedEmail: {
